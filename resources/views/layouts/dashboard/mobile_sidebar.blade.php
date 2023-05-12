@@ -17,7 +17,7 @@
         ],
         [
             'icon' => 'fa-duotone fa-credit-card',
-            'title' => 'Subscripciones',
+            'title' => 'Suscripciones',
             'url' => 'dashboard/subscription-history',
             'access' => 'admin',
         ],
@@ -39,6 +39,7 @@
             'url' => 'dashboard/project',
             'access' => 'user-admin',
         ],
+        
         [
             'icon' => 'fa-duotone fa-qrcode',
             'title' => 'Códigos QR',
@@ -48,7 +49,7 @@
         
         [
             'icon' => 'fa-duotone fa-tag',
-            'title' => $SA ? 'Planes de Precios' : 'Plan actual',
+            'title' => $SA ? 'Planes' : 'Plan actual',
             'url' => $SA ? 'dashboard/plans' : 'dashboard/plan',
             'access' => 'user-admin',
         ],
@@ -99,7 +100,12 @@
     <div style="height: calc(100% - 58px)" data-simplebar class="scrollbar">
         <div class="sidebar-navlist">
             @foreach($navList as $item)
-                @if($item["title"] == 'Users' || $item["title"] == 'Subscription' || $item["title"] == 'Settings' || $item["title"] == 'Manage Theme' || $item["title"] == 'Testimonials')
+                @if ($item['title'] == 'Usuarios' ||
+                    $item['title'] == 'Suscripciones' ||
+                    $item['title'] == 'Pagos' ||
+                    $item['title'] == 'Ajustes' || 
+                    $item['title'] == 'Administrar temas' ||
+                    $item['title'] == 'Testimonios')
                     @role('SUPER-ADMIN')
                         <a 
                             href="{{url($item["url"])}}"
@@ -119,6 +125,7 @@
                     </a>
                 @endif
             @endforeach
+            <br /><hr />
             <a 
                 class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
