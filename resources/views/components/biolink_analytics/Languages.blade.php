@@ -4,7 +4,9 @@
         $lanCodes = array();
         foreach($analytics as $item){
             $lan = json_decode($item->languages);
-            array_push($lanCodes, $lan[1]);
+            if (isset($lan[1])) {
+                array_push($lanCodes, $lan[1]);
+            }
         };
         
         // calculating that how many lanCode;

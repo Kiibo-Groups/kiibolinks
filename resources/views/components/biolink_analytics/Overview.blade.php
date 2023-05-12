@@ -5,8 +5,8 @@
                 // accesing all the browsers and total value
                 $countries = array();
                 foreach($analytics as $item){
-                    $country = json_decode($item->ip)->countryName;
-                    array_push($countries, $country);
+                    $country = json_decode($item->ip, true); 
+                    array_push($countries, $country['countryName']);
                 };
 
                 // calculating that how many countries; 
