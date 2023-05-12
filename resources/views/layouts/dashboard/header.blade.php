@@ -19,8 +19,7 @@ $user = Auth::user();
                 class="me-3 me-lg-0" 
                 data-bs-toggle="dropdown"
                 aria-haspopup="true" 
-                aria-expanded="false" 
-            >
+                aria-expanded="false" >
                 <img 
                     width="40px" 
                     height="40px" 

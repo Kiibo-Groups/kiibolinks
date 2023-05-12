@@ -80,10 +80,10 @@
     <script src="{{ asset('js/account.js') }}"></script>
 
     <script>
-        Array.prototype.forEach.call(
-            document.querySelectorAll('.scrollbar'),
-            el => new SimpleBar()
-        );
+        // Array.prototype.forEach.call(
+        //     document.querySelectorAll('.scrollbar'),
+        //     el => new SimpleBar()
+        // );
     </script>
 </body>
 

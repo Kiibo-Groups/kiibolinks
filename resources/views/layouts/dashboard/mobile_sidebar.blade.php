@@ -11,13 +11,13 @@
         ],
         [
             'icon' => 'fa-duotone fa-users',
-            'title' => 'Users',
+            'title' => 'Usuarios',
             'url' => 'dashboard/users',
             'access' => 'admin',
         ],
         [
             'icon' => 'fa-duotone fa-credit-card',
-            'title' => 'Subscription',
+            'title' => 'Subscripciones',
             'url' => 'dashboard/subscription-history',
             'access' => 'admin',
         ],
@@ -35,52 +35,53 @@
         ],
         [
             'icon' => 'fa-duotone fa-memo',
-            'title' => 'Projects',
+            'title' => 'Projectos',
             'url' => 'dashboard/project',
             'access' => 'user-admin',
         ],
         [
             'icon' => 'fa-duotone fa-qrcode',
-            'title' => 'QR codes',
+            'title' => 'Códigos QR',
             'url' => 'dashboard/qrcodes',
             'access' => 'user-admin',
         ],
-        [
-            'icon' => 'fa-duotone fa-file-user',
-            'title' => 'Account',
-            'url' => 'dashboard/account/setting',
-            'access' => 'user-admin',
-        ],
+        
         [
             'icon' => 'fa-duotone fa-tag',
-            'title' => $SA ? 'Pricing Plans' : 'Current Plan',
+            'title' => $SA ? 'Planes de Precios' : 'Plan actual',
             'url' => $SA ? 'dashboard/plans' : 'dashboard/plan',
             'access' => 'user-admin',
         ],
         [
             'icon' => 'fa-duotone fa-message-captions',
-            'title' => 'Testimonials',
+            'title' => 'Testimonios',
             'url' => 'dashboard/testimonials',
             'access' => 'admin',
         ],
         [
             'icon' => 'fa-duotone fa-palette',
-            'title' => 'Manage Theme',
+            'title' => 'Administrar temas',
             'url' => 'dashboard/themes',
             'access' => 'admin',
         ],
         [
             'icon' => 'fa-duotone fa-money-check-dollar-pen',
-            'title' => 'Payment Settings',
+            'title' => 'Pagos',
             'url' => 'dashboard/payment-settings',
             'access' => 'admin',
         ],
         [
             'icon' => 'fa-duotone fa-gear',
-            'title' => 'App Settings',
+            'title' => 'Ajustes',
             'url' => 'dashboard/app-settings',
             'access' => 'admin',
         ],
+        [
+            'icon' => 'fa-duotone fa-file-user',
+            'title' => 'Cuenta',
+            'url' => 'dashboard/account/setting',
+            'access' => 'user-admin',
+        ]
     ];
 ?>
 

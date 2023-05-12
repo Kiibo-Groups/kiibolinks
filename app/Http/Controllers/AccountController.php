@@ -28,6 +28,10 @@ class AccountController extends Controller
             File::delete($user->image);
 
             $location = public_path('/upload/');
+            if (!file_exists($location)) {
+                mkdir($location, 666, true);
+            }
+            
             $image = Image::make($req->image);
             $image->save($location . time() . $req->image->getClientOriginalName());
 

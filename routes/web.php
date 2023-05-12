@@ -253,4 +253,3 @@ if ($installed === true) {
         return redirect('/setup', 301);
     });
 }
-
