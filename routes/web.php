@@ -58,7 +58,7 @@ if ($installed === true) {
     Route::get('auth/google', [SocialiteController::class, 'google']);
     Route::get('auth/google/callback', [SocialiteController::class, 'google_callback']);
 
-    Route::middleware(['auth','web', 'verified', 'role:SUPER-ADMIN|PREMIUM|STANDARD|BASIC', 'next_payment'])->prefix('/dashboard')->group(function () {
+    Route::middleware(['auth','web', 'verified', 'role:SUPER-ADMIN|PREMIUM|STANDARD|BASIC', 'next_payment'])->prefix('/')->group(function () {
         Route::get('/', [DashboardController::class, 'index']);
 
         //Plans Routes Start
