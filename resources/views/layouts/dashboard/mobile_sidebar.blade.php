@@ -4,12 +4,6 @@
 
     $navList = [
         [
-            'icon' => 'fa-duotone fa-table-rows',
-            'title' => 'Dashboard',
-            'url' => 'dashboard',
-            'access' => 'user-admin',
-        ],
-        [
             'icon' => 'fa-duotone fa-users',
             'title' => 'Usuarios',
             'url' => 'dashboard/users',
@@ -22,35 +16,9 @@
             'access' => 'admin',
         ],
         [
-            'icon' => 'fa-duotone fa-link-simple',
-            'title' => 'Bio Links',
-            'url' => 'dashboard/links',
-            'access' => 'user-admin',
-        ],
-        [
             'icon' => 'fa-duotone fa-link-horizontal',
             'title' => 'Short Links',
             'url' => 'dashboard/short-links',
-            'access' => 'user-admin',
-        ],
-        [
-            'icon' => 'fa-duotone fa-memo',
-            'title' => 'Projectos',
-            'url' => 'dashboard/project',
-            'access' => 'user-admin',
-        ],
-        
-        [
-            'icon' => 'fa-duotone fa-qrcode',
-            'title' => 'Códigos QR',
-            'url' => 'dashboard/qrcodes',
-            'access' => 'user-admin',
-        ],
-        
-        [
-            'icon' => 'fa-duotone fa-tag',
-            'title' => $SA ? 'Planes' : 'Plan actual',
-            'url' => $SA ? 'dashboard/plans' : 'dashboard/plan',
             'access' => 'user-admin',
         ],
         [
