@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,9 +13,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/toastify.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/aos.js') }}" ></script>
+    <script src="{{ asset('js/aos.js') }}"></script>
     <script src="{{ asset('splide/splide.min.js') }}"></script>
-    <script src="{{ asset('js/fontawesome.js') }}" ></script>
+    <script src="{{ asset('js/fontawesome.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
@@ -45,7 +46,9 @@ if ($user) {
     @include('layouts.app_header')
 
     <main style="overflow-x: hidden !important;">
-        @yield('content')
+        <div id="app">
+            @yield('content')
+        </div>
     </main>
 
     <script>
@@ -55,6 +58,8 @@ if ($user) {
     </script>
     <script src="{{ asset('js/app_header.js') }}"></script>
     <script src="{{ asset('js/utils.js') }}"></script>
+
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>
