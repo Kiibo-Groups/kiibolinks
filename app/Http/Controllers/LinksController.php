@@ -49,35 +49,7 @@ class LinksController extends Controller
     // -------------------------------------------------
 
 
-    // Getting the total bio-links of user
-    public function GetShortLinks(Request $req) 
-    {
-        $linkLimit = 0;
-        $user = auth()->user();
-        $SA = $user->hasRole('SUPER-ADMIN');
-        $plan = PricingPlan::where('id', $user->pricing_plan_id)->first();
 
-        if ($SA) {
-            $links = Link::where('link_type', 'shortlink')->orderBy('created_at', 'desc')->paginate(10);
-            return view('pages.admin.short-links', compact('links'));
-
-        } else {
-            $links = Link::where('user_id', $user->id)->where('link_type', 'shortlink')->orderBy('created_at', 'desc')->paginate(10);
-
-            if ($plan->biolinks == 'Unlimited') {
-                $limit_over = FALSE;
-                return view('pages.short_links', compact('links', 'limit_over'));
-            }
-
-            if ($links->count() >=  intval($plan->biolinks)) {
-                $limit_over = TRUE;
-                return view('pages.short_links', compact('links', 'limit_over'));
-            } else {
-                $limit_over = FALSE;
-                return view('pages.short_links', compact('links', 'limit_over'));
-            }
-        }
-    }
     // -------------------------------------------------
     
 
