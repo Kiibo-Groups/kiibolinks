@@ -12,27 +12,28 @@ class ShortLinksController extends Controller
     {
         $linkLimit = 0;
         $user = auth()->user();
-        $SA = $user->hasRole('SUPER-ADMIN');
-        $plan = PricingPlan::where('id', $user->pricing_plan_id)->first();
-  
-        if ($SA) {
+
+        $isSuperAdmin = $user->hasRole('SUPER-ADMIN');
+
+        if ($isSuperAdmin) {
             $links = Link::where('link_type', 'shortlink')->orderBy('created_at', 'desc')->paginate(10);
-            return view('pages.admin.short-links', compact('links'));
+            return view('pages.admin.short-links.index', compact('links'));
   
         } else {
             $links = Link::where('user_id', $user->id)->where('link_type', 'shortlink')->orderBy('created_at', 'desc')->paginate(10);
+            $plan = PricingPlan::where('id', $user->pricing_plan_id)->first();
   
             if ($plan->biolinks == 'Unlimited') {
                 $limit_over = false;
-                return view('pages.short_links', compact('links', 'limit_over'));
+                return view('pages.short-links.index', compact('links', 'limit_over'));
             }
   
             if ($links->count() >=  intval($plan->biolinks)) {
                 $limit_over = true;
-                return view('pages.short_links', compact('links', 'limit_over'));
+                return view('pages.short-links.index', compact('links', 'limit_over'));
             } else {
                 $limit_over = false;
-                return view('pages.short_links', compact('links', 'limit_over'));
+                return view('pages.short-links.index', compact('links', 'limit_over'));
             }
         }
     }
