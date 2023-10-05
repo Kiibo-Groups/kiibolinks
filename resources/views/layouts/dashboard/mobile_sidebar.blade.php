@@ -4,83 +4,51 @@
 
     $navList = [
         [
-            'icon' => 'fa-duotone fa-table-rows',
-            'title' => 'Dashboard',
-            'url' => 'dashboard',
-            'access' => 'user-admin',
-        ],
-        [
             'icon' => 'fa-duotone fa-users',
             'title' => 'Usuarios',
-            'url' => 'dashboard/users',
+            'url' => 'users',
             'access' => 'admin',
         ],
         [
             'icon' => 'fa-duotone fa-credit-card',
             'title' => 'Suscripciones',
-            'url' => 'dashboard/subscription-history',
+            'url' => 'subscription-history',
             'access' => 'admin',
-        ],
-        [
-            'icon' => 'fa-duotone fa-link-simple',
-            'title' => 'Bio Links',
-            'url' => 'dashboard/links',
-            'access' => 'user-admin',
         ],
         [
             'icon' => 'fa-duotone fa-link-horizontal',
             'title' => 'Short Links',
-            'url' => 'dashboard/short-links',
-            'access' => 'user-admin',
-        ],
-        [
-            'icon' => 'fa-duotone fa-memo',
-            'title' => 'Projectos',
-            'url' => 'dashboard/project',
-            'access' => 'user-admin',
-        ],
-        
-        [
-            'icon' => 'fa-duotone fa-qrcode',
-            'title' => 'Códigos QR',
-            'url' => 'dashboard/qrcodes',
-            'access' => 'user-admin',
-        ],
-        
-        [
-            'icon' => 'fa-duotone fa-tag',
-            'title' => $SA ? 'Planes' : 'Plan actual',
-            'url' => $SA ? 'dashboard/plans' : 'dashboard/plan',
+            'url' => 'short-links',
             'access' => 'user-admin',
         ],
         [
             'icon' => 'fa-duotone fa-message-captions',
             'title' => 'Testimonios',
-            'url' => 'dashboard/testimonials',
+            'url' => 'testimonials',
             'access' => 'admin',
         ],
         [
             'icon' => 'fa-duotone fa-palette',
             'title' => 'Administrar temas',
-            'url' => 'dashboard/themes',
+            'url' => 'themes',
             'access' => 'admin',
         ],
         [
             'icon' => 'fa-duotone fa-money-check-dollar-pen',
             'title' => 'Pagos',
-            'url' => 'dashboard/payment-settings',
+            'url' => 'payment-settings',
             'access' => 'admin',
         ],
         [
             'icon' => 'fa-duotone fa-gear',
             'title' => 'Ajustes',
-            'url' => 'dashboard/app-settings',
+            'url' => 'app-settings',
             'access' => 'admin',
         ],
         [
             'icon' => 'fa-duotone fa-file-user',
             'title' => 'Cuenta',
-            'url' => 'dashboard/account/setting',
+            'url' => 'account/setting',
             'access' => 'user-admin',
         ]
     ];
