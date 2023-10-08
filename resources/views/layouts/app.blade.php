@@ -8,6 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    @vite('resources/css/app.css')
+
     <title>{{ $app->title }} - {{__('Your Link Management in one place')}}</title>
 
     <!-- Scripts -->
@@ -21,7 +23,7 @@
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('css/toastify.css') }}">
