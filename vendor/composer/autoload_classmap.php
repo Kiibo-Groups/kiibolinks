@@ -42,6 +42,7 @@ return array(
     'App\\Http\\Controllers\\SuperAdminController' => $baseDir . '/app/Http/Controllers/SuperAdminController.php',
     'App\\Http\\Controllers\\TestDbController' => $baseDir . '/app/Http/Controllers/TestDbController.php',
     'App\\Http\\Controllers\\VersionUpdateController' => $baseDir . '/app/Http/Controllers/VersionUpdateController.php',
+    'App\\Http\\Controllers\\Web\\ShortLinksController' => $baseDir . '/app/Http/Controllers/Web/ShortLinksController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\CheckNextPayment' => $baseDir . '/app/Http/Middleware/CheckNextPayment.php',

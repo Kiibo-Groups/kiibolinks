@@ -71,6 +71,8 @@
             </main>
         </div>
     </div>
+    @vite('resources/js/app.js')
+
 
 
     <script src="{{ asset('js/utils.js') }}"></script>
@@ -87,6 +89,7 @@
         //     el => new SimpleBar()
         // );
     </script>
+    @stack('scripts')
 </body>
 
 </html>

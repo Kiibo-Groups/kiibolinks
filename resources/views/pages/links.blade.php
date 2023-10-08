@@ -28,6 +28,8 @@
             @include('components.links.CreateLink')
         </div>
 
+
+
         @if ($limit_over)
             @include('components.common.WarningAlert')
         @endif
@@ -161,3 +163,8 @@
         </script>
     </div>
 @endsection
+
+
+@push('scripts')
+    @vite('resources/js/scripts/pages/links/list-links.js')
+@endpush
