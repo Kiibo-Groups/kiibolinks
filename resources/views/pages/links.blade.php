@@ -29,6 +29,11 @@
         </div>
 
 
+        <div class="flex">
+            <bio-link-card />
+            <create-bio-link-button />
+        </div>
+
 
         @if ($limit_over)
             @include('components.common.WarningAlert')
