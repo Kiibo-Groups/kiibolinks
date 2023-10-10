@@ -29,9 +29,12 @@
         </div>
 
 
-        <div class="flex">
-            <bio-link-card />
-            <create-bio-link-button />
+        <div class="grid">
+            <biolink-card />
+            <biolink-card />
+            <biolink-card />
+            <biolink-card />
+            <create-biolink-button />
         </div>
 
 
@@ -40,7 +43,7 @@
         @endif
 
         @if (count($links) > 0)
-            <div class="card overflow-auto">
+            {{-- <div class="card overflow-auto">
                 <table class="table table-borderless styled-table">
                     <thead>
                         <tr>
@@ -149,14 +152,14 @@
                 <div class="mt-3 d-flex justify-content-center">
                     {{ $links->links() }}
                 </div>
-            </div>
+            </div> --}}
         @else
             <div class="card py-4 px-3 shadow-sm border-0 text-center">
                 <h5>{{__('No have any project')}}</h5>
             </div>
         @endif
 
-        <script>
+        {{-- <script>
             function makeCopy(linkCopy, linkUrlID) {
                 // console.log(linkUrl);
                 const result = window.copyAnchorHref(linkUrlID);
@@ -165,7 +168,7 @@
                     document.getElementById(linkCopy).innerText = "Copy";
                 }, 1000)
             }
-        </script>
+        </script> --}}
     </div>
 @endsection
 

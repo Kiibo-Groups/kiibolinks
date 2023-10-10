@@ -44,13 +44,13 @@
                                 class="ps-0 {{$inputClass}}"
                             >
 
-                            <script>
+                            {{-- <script>
                                 document.getElementById("urlName")
                                 .addEventListener("change", function (item) {
                                     let result = item.target.value.replace(/\s+/g, '').toLowerCase();
                                     item.target.value = result;
                                 });
-                            </script>
+                            </script> --}}
                         </div>
 
                         @error('url_name')

@@ -6,7 +6,7 @@ import CreateBioLinkButton from "../../../components/links/CreateBioLinkButton.v
 //     vueApp.component(key, icon);
 // }
 
-vueApp.component("bio-link-card", BioLinkCard);
-vueApp.component("create-bio-link-button", CreateBioLinkButton);
+vueApp.component("biolink-card", BioLinkCard);
+vueApp.component("create-biolink-button", CreateBioLinkButton);
 
 vueApp.mount("#app");

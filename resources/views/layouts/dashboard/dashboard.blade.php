@@ -34,7 +34,6 @@
     <link rel="stylesheet" href="{{ asset('splide/splide.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/drag&drop.css') }}">
 
-    @vite('resources/js/app.js')
 </head>
 
 <body>
@@ -74,6 +73,8 @@
             </main>
         </div>
     </div>
+
+    @vite('resources/js/app.js')
 
     <script src="{{ asset('js/utils.js') }}"></script>
     <script src="{{ asset('js/link-setting.js') }}"></script>
