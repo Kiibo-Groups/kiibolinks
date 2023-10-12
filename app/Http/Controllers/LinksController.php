@@ -88,13 +88,17 @@ class LinksController extends Controller
         $user = auth()->user();
 
         if ($req->link_type == 'shortlink') {
+            $req->link_name = "/" . $req->link_name;
+
             $req->validate([
-                'link_name' => ['required','string','min:5','max:255'],
+                'link_name' => ['required','string','min:5','max:255','unique:links',new CheckLinkName],
                 'external_url' => 'required|min:1|max:255|url',
             ]);
 
             $link_key = rand(10000000, 90000000);
-            $short_link = base_convert($link_key, 10, 36);
+            #$short_link = base_convert($link_key, 10, 36);
+            $trimUrl = trim(str_replace(" ","", $req->link_name));
+            $short_link = preg_replace("/\s+/", "", strtolower($trimUrl));
 
             $link = new Link;
             $link->user_id = $user->id;
@@ -135,13 +139,17 @@ class LinksController extends Controller
 
         if ($req->link_type && $req->link_type == 'shortlink') {
 
-            $rules = ['external_url' => 'required|url'];
+            $req->link_name = "/" . $req->link_name;
+            $urlName = preg_replace("/\s+/", "", strtolower($req->link_name));
+
+            $rules = ['external_url' => 'required|url', 'link_name' => ['required','string','min:5','max:255','unique:links',new CheckLinkName]];
             $messages = ['external_url.url' => 'Please provide a valid url.'];
             $this->validate($req, $rules, $messages, );
     
             Link::where('id', $linkId)->update([
                 'link_name' => $req->link_name,
                 'external_url' => $req->external_url,
+                'url_name' => $urlName
             ]);
             
             return back();
