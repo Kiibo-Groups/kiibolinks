@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ $app->title }} - {{__('Your Link Management in one place')}}</title>
+    @vite('resources/css/app.css')
 
     <!-- Scripts -->
     <script src="{{ asset('js/toastify.js') }}"></script>
@@ -17,12 +18,12 @@
     <script src="{{ asset('js/qr-code-styling.js') }}"></script>
     <script src="{{ asset('/js/apexcharts.js') }}"></script>
     <script src="{{ asset('js/axios.min.js') }}"></script>
-    <script src="{{ asset('js/fontawesome.js') }}" ></script>
+    <script src="{{ asset('js/fontawesome.js') }}"></script>
     <script src="{{ asset('js/simplebar.min.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
- 
+
     {{-- Scrollbar --}}
     <link rel="stylesheet" href="{{ asset('css/simplebar.css') }}" />
 
@@ -32,6 +33,7 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('splide/splide.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/drag&drop.css') }}">
+
 </head>
 
 <body>
@@ -49,27 +51,30 @@
         <div class="dashboard-content">
             @include('layouts.dashboard.header')
             <main class="content-area d-flex flex-column justify-content-between">
-                <div>
-                    @if (session('error'))
-                    @include('components.Toast', ['toastType' => 'error', 'message' => session('error')])
-                    @endif
-                    @if (session('success'))
+                <div id="app">
+                    <div>
+                        @if (session('error'))
+                        @include('components.Toast', ['toastType' => 'error', 'message' => session('error')])
+                        @endif
+                        @if (session('success'))
                         @include('components.Toast', ['toastType' => 'success', 'message' => session('success')])
-                    @endif
-                    <div class="container">
-                        @include('components.common.PaymentWarning')
+                        @endif
+                        <div class="container">
+                            @include('components.common.PaymentWarning')
+                        </div>
+
+                        @yield('content')
                     </div>
 
-                    @yield('content')
-                </div>
-
-                <div class="container pt-4 px-2 text-center">
-                    <p style="font-size: 12px;">{{$app->copyright}}</p>
+                    <div class="container pt-4 px-2 text-center">
+                        <p style="font-size: 12px;">{{$app->copyright}}</p>
+                    </div>
                 </div>
             </main>
         </div>
     </div>
 
+    @vite('resources/js/app.js')
 
     <script src="{{ asset('js/utils.js') }}"></script>
     <script src="{{ asset('js/link-setting.js') }}"></script>
@@ -85,6 +90,7 @@
         //     el => new SimpleBar()
         // );
     </script>
+    @stack('scripts')
 </body>
 
 </html>

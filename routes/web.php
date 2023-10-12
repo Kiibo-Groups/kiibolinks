@@ -19,6 +19,8 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\PaymentSettingsController;
 use App\Http\Controllers\SubscriptionController;
 
+use App\Http\Controllers\Web\ShortLinksController;
+
 use App\Http\Controllers\Gateways\MollieController;
 use App\Http\Controllers\Gateways\RazorpayController;
 use App\Http\Controllers\Gateways\PaypalController;
@@ -96,7 +98,7 @@ if ($installed === true) {
 
         // Link routes start
         Route::get('/links', [LinksController::class, 'BioLinks']);
-        Route::get('/short-links', [LinksController::class, 'GetShortLinks']);
+        Route::get('/short-links', [ShortLinksController::class, 'index']);
         Route::post('/create-link', [LinksController::class, 'CreateLink'])->middleware('check_payment');
         Route::put('/update-link/{linkId}', [LinksController::class, 'UpdateLink'])->middleware('check_payment');
         Route::put('/update-link-logo/{linkId}', [LinksController::class, 'UpdateLinkLogo'])->middleware('check_payment');
@@ -110,6 +112,7 @@ if ($installed === true) {
         Route::get('/biolink/{linkUrl}', [LinkItemsController::class, 'EditBioLink']);
         Route::post('/biolink/add-item', [LinkItemsController::class, 'AddLinkItem'])->middleware('check_payment');
         Route::put('/biolink/edit-item/{itemId}', [LinkItemsController::class, 'EditLinkItem'])->middleware('check_payment');
+        Route::put('/biolink/edit-item/{itemId}/activation', [LinkItemsController::class, 'ActivateLinkItem'])->middleware('check_payment');
         Route::put('/biolink/update-position', [LinkItemsController::class, 'UpdateItemPosition']);
         Route::delete('/biolink/delete-item/{itemId}', [LinkItemsController::class, 'DeleteLinkItem']);
         Route::post('/link/settings-btn', [LinkItemsController::class, 'BtnController']);

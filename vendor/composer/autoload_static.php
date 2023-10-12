@@ -426,8 +426,8 @@ class ComposerStaticInit5577fbfe898aeaa6cc664d933d4cc3c6
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -703,6 +703,7 @@ class ComposerStaticInit5577fbfe898aeaa6cc664d933d4cc3c6
         'App\\Http\\Controllers\\SuperAdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/SuperAdminController.php',
         'App\\Http\\Controllers\\TestDbController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestDbController.php',
         'App\\Http\\Controllers\\VersionUpdateController' => __DIR__ . '/../..' . '/app/Http/Controllers/VersionUpdateController.php',
+        'App\\Http\\Controllers\\Web\\ShortLinksController' => __DIR__ . '/../..' . '/app/Http/Controllers/Web/ShortLinksController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckNextPayment' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckNextPayment.php',

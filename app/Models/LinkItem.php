@@ -9,6 +9,10 @@ class LinkItem extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'is_active' => 'boolean',
+    ];
+
     public function link(){
         return $this->belongsTo(Link::class);
     }

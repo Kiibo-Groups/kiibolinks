@@ -1,1 +1,3 @@
-require("./bootstrap");
+import "./bootstrap";
+
+import 'vue-final-modal/style.css'

@@ -74,19 +74,18 @@
                             ?>
                             @if($Item['name'] == 'email')
                                 <a class="mx-2 fs-4" _target="_blank" href="mailto:{{$Item['link']}}">
-                                    <i style="color: #1d2939" class="{{$Item['icon']}}"></i>
+                                    <img src="{{ asset($Item['icon']) }}" alt="">
                                 </a>
 
                             @elseif($Item['name'] == 'telephone')
                                 <a href="tel:{{$Item['link']}}" class="mx-2 fs-4">
-                                    <i style="color: #1d2939" class="{{$Item['icon']}}"></i>
+                                    <img src="{{ asset($Item['icon']) }}" alt="">
                                 </a>
 
                             @elseif($Item['name'] == 'whatsapp')
                                 <a href="https://api.whatsapp.com/send?phone={{$Item['link']}}" target="_blank" class="mx-2 fs-4">
-                                    <i style="color: #1d2939" class="{{$Item['icon']}}"></i>
+                                    <img src="{{ asset($Item['icon']) }}" alt="">
                                 </a>
-
                             @else
                                 <?php
                                     $linkUrl = explode("//", $Item['link'])[0];
@@ -98,7 +97,8 @@
                                     }
                                 ?>
                                 <a class="mx-2 fs-4" target="_blank" href="{{$validlLink}}">
-                                    <i style="color: #1d2939" class="{{$Item['icon']}}"></i>
+                                    {{-- <i style="color: #1d2939" class="{{$Item['icon']}}"></i> --}}
+                                    <img width="50" src="{{ asset($Item['icon']) }}" alt="">
                                 </a>
                             @endif
                         @endforeach
@@ -111,10 +111,11 @@
                     <div class="text-center mb-3">
                     <?php
                         $type = $item->item_type;
+                        $is_active = $item->is_active;
                         $sub_type = $item->item_sub_type;
                     ?>
     
-                    @if($type == 'Image' || $type == 'Embed Link')
+                    @if($type == 'Image' || $type == 'Embed Link' && $is_active)
                         <div class="mobileViewLinkItem" style="{{$buttonStyle}}">
                             <div 
                                 role="button"
@@ -169,7 +170,7 @@
                             </div>
                         </div>
     
-                    @elseif($type == 'Text Content')
+                    @elseif($type == 'Text Content' && $is_active)
                         @if($item->item_sub_type == 'paragraph')
                             <div class="mobileViewLinkItem" style="{{$buttonStyle}}">
                                 <div 
@@ -205,7 +206,7 @@
                             </{{$item->item_sub_type}}>
                         @endif
     
-                    @elseif($type == 'Link')
+                    @elseif($type == 'Link' && $is_active)
                         <div class="mobileViewLinkItem" style="{{$buttonStyle}}">
                             <div class="linkItemContent" style="padding: 14px;">
                                 <a 
