@@ -60,7 +60,7 @@ if ($installed === true) {
     Route::get('auth/google', [SocialiteController::class, 'google']);
     Route::get('auth/google/callback', [SocialiteController::class, 'google_callback']);
 
-    Route::middleware(['auth','web', 'verified', 'role:SUPER-ADMIN|PREMIUM|STANDARD|BASIC', 'next_payment'])->prefix('/')->group(function () {
+    Route::middleware(['auth','web', 'verified', 'role:SUPER-ADMIN|PREMIUM|STANDARD|BASIC', 'next_payment'])->prefix('/dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'index']);
 
         //Plans Routes Start
@@ -154,7 +154,7 @@ if ($installed === true) {
 
 
     // Only admin routes
-    Route::middleware(['auth','web', 'verified', 'role:SUPER-ADMIN', 'next_payment'])->prefix('/')->group(function () {
+    Route::middleware(['auth','web', 'verified', 'role:SUPER-ADMIN', 'next_payment'])->prefix('/dashboard')->group(function () {
         Route::get('/users', [SuperAdminController::class, 'index']);
         Route::put('/users/{id}', [SuperAdminController::class, 'UpdateUser'])->name('user-update');
         Route::get('/themes', [SuperAdminController::class, 'ManageThemes']);

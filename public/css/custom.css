@@ -43,7 +43,6 @@ body .text-disable {
   border-radius: 50%;
   border: 3px solid transparent;
   border-top-color: #9370DB;
-  -webkit-animation: spin 0.5s linear infinite;
   animation: spin 0.5s linear infinite;
 }
 
@@ -57,7 +56,6 @@ body .text-disable {
   border-radius: 50%;
   border: 3px solid transparent;
   border-top-color: #BA55D3;
-  -webkit-animation: spin 3s linear infinite;
   animation: spin 0.5s linear infinite;
 }
 
@@ -71,17 +69,7 @@ body .text-disable {
   border-radius: 50%;
   border: 3px solid transparent;
   border-top-color: #FF00FF;
-  -webkit-animation: spin 0.5s linear infinite;
   animation: spin 0.5s linear infinite;
-}
-
-@-webkit-keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 @keyframes spin {
   0% {
@@ -118,14 +106,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-@-webkit-keyframes bookAnimation {
-  0% {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-45px);
-  }
-}
 @keyframes bookAnimation {
   0% {
     transform: translateY(0);
@@ -136,8 +116,7 @@ body {
 }
 .home-header .bannerThumbnail {
   margin-top: 40px;
-  -webkit-animation: bookAnimation 2s infinite alternate;
-          animation: bookAnimation 2s infinite alternate;
+  animation: bookAnimation 2s infinite alternate;
 }
 .home-header h1 {
   font-size: 70px;
@@ -145,7 +124,7 @@ body {
   margin-bottom: 40px;
 }
 .home-header h1.slogan-text {
-  background: linear-gradient(to right, #2e90fa 0%, hsl(11deg, 100%, 62%) 100%);
+  background: linear-gradient(to right, #2e90fa 0%, hsl(11, 100%, 62%) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -500,7 +479,7 @@ body {
 .styled-table tbody tr .visited a span {
   padding: 1px 8px;
   border-radius: 4px;
-  background: hsl(210deg, 12%, 93%);
+  background: hsl(210, 12%, 93%);
 }
 .styled-table tbody tr .visited a span i {
   font-size: 13px;
@@ -510,7 +489,7 @@ body {
   padding: 1px 8px;
   border-radius: 4px;
   cursor: pointer;
-  background: hsl(210deg, 12%, 93%);
+  background: hsl(210, 12%, 93%);
 }
 .styled-table tbody tr .visited span i {
   font-size: 13px;

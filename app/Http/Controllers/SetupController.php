@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\TestDbController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class SetupController extends Controller
@@ -143,7 +144,6 @@ class SetupController extends Controller
     public function lastStep(Request $request)
     {
         ini_set('max_execution_time', 1600); //600 seconds = 10 minutes 
-
         try {
             $this->changeEnv([
                 'APP_NAME' => session('env.APP_NAME'),
@@ -163,15 +163,14 @@ class SetupController extends Controller
 
             Artisan::call('config:cache');
 
-            Artisan::call('migrate:fresh --force --seed');
-
             Storage::disk('public')->put('installed', 'Contents');
 
+            Artisan::call('migrate:fresh', ['--force' => '', '--seed' => '']);
             
         } catch (\Exception $e) {
             
             return $e->getMessage();
-            
+
             return 'Something went wrong';
         }
         
