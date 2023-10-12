@@ -20,7 +20,13 @@
                         <i class="{{$item->item_icon}} me-3" style="font-size: 14px; color: #667085"></i>
                         <h6 class="m-0 text-center">{{$item->item_title}}</h6>
 
-                        <div class="dropdown">
+                        <div class="dropdown flex">
+                            <div class="flex">
+                                    <toggle-switch-activation
+                                    :link-item-id="{{ $item->id }}"
+                                    :is-active="{{ $item->is_active ? 'true' : 'false'}}"
+                                ></toggle-switch-activation> 
+                            </div>
                             <button 
                                 class="btn py-0 px-3" 
                                 style="font-size: 18px;"

@@ -111,10 +111,11 @@
                     <div class="text-center mb-3">
                     <?php
                         $type = $item->item_type;
+                        $is_active = $item->is_active;
                         $sub_type = $item->item_sub_type;
                     ?>
     
-                    @if($type == 'Image' || $type == 'Embed Link')
+                    @if($type == 'Image' || $type == 'Embed Link' && $is_active)
                         <div class="mobileViewLinkItem" style="{{$buttonStyle}}">
                             <div 
                                 role="button"
@@ -169,7 +170,7 @@
                             </div>
                         </div>
     
-                    @elseif($type == 'Text Content')
+                    @elseif($type == 'Text Content' && $is_active)
                         @if($item->item_sub_type == 'paragraph')
                             <div class="mobileViewLinkItem" style="{{$buttonStyle}}">
                                 <div 
@@ -205,7 +206,7 @@
                             </{{$item->item_sub_type}}>
                         @endif
     
-                    @elseif($type == 'Link')
+                    @elseif($type == 'Link' && $is_active)
                         <div class="mobileViewLinkItem" style="{{$buttonStyle}}">
                             <div class="linkItemContent" style="padding: 14px;">
                                 <a 

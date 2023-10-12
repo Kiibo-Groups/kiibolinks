@@ -112,6 +112,7 @@ if ($installed === true) {
         Route::get('/biolink/{linkUrl}', [LinkItemsController::class, 'EditBioLink']);
         Route::post('/biolink/add-item', [LinkItemsController::class, 'AddLinkItem'])->middleware('check_payment');
         Route::put('/biolink/edit-item/{itemId}', [LinkItemsController::class, 'EditLinkItem'])->middleware('check_payment');
+        Route::put('/biolink/edit-item/{itemId}/activation', [LinkItemsController::class, 'ActivateLinkItem'])->middleware('check_payment');
         Route::put('/biolink/update-position', [LinkItemsController::class, 'UpdateItemPosition']);
         Route::delete('/biolink/delete-item/{itemId}', [LinkItemsController::class, 'DeleteLinkItem']);
         Route::post('/link/settings-btn', [LinkItemsController::class, 'BtnController']);

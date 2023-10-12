@@ -140,6 +140,21 @@ class LinkItemsController extends Controller
             return response()->json(['error' => 'Something was wrong']);
         }
     }
+
+    public function ActivateLinkItem(Request $req, $itemId)
+    {
+        try {
+            LinkItem::where('id', $itemId)->update([
+                'is_active' => $req->active,
+            ]);
+
+            return LinkItem::find($itemId);
+
+            // return response()->json(['success' => 'Link item successfully updated']);
+        } catch (\Throwable $th) {
+            return response()->json(['error' => 'Something was wrong']);
+        }
+    }
     //--------------------------------------------------------
 
     
