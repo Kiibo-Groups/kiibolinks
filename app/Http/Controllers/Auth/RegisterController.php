@@ -105,13 +105,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $theme = Theme::get()->first();
-        $plan = PricingPlan::where('name', 'BASIC')->first();
+        $plan = PricingPlan::where('name', 'PREMIUM')->first();
 
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ])->assignRole('BASIC');
+        ])->assignRole('PREMIUM');
         $user->pricing_plan_id = $plan->id;
         $user->save();
 
