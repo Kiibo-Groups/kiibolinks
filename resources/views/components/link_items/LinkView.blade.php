@@ -74,19 +74,18 @@
                             ?>
                             @if($Item['name'] == 'email')
                                 <a class="mx-2 fs-4" _target="_blank" href="mailto:{{$Item['link']}}">
-                                    <i style="color: #1d2939" class="{{$Item['icon']}}"></i>
+                                    <img src="{{ asset($Item['icon']) }}" alt="">
                                 </a>
 
                             @elseif($Item['name'] == 'telephone')
                                 <a href="tel:{{$Item['link']}}" class="mx-2 fs-4">
-                                    <i style="color: #1d2939" class="{{$Item['icon']}}"></i>
+                                    <img src="{{ asset($Item['icon']) }}" alt="">
                                 </a>
 
                             @elseif($Item['name'] == 'whatsapp')
                                 <a href="https://api.whatsapp.com/send?phone={{$Item['link']}}" target="_blank" class="mx-2 fs-4">
-                                    <i style="color: #1d2939" class="{{$Item['icon']}}"></i>
+                                    <img src="{{ asset($Item['icon']) }}" alt="">
                                 </a>
-
                             @else
                                 <?php
                                     $linkUrl = explode("//", $Item['link'])[0];
@@ -98,7 +97,8 @@
                                     }
                                 ?>
                                 <a class="mx-2 fs-4" target="_blank" href="{{$validlLink}}">
-                                    <i style="color: #1d2939" class="{{$Item['icon']}}"></i>
+                                    {{-- <i style="color: #1d2939" class="{{$Item['icon']}}"></i> --}}
+                                    <img width="50" src="{{ asset($Item['icon']) }}" alt="">
                                 </a>
                             @endif
                         @endforeach

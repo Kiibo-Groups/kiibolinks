@@ -18,6 +18,7 @@ export default defineConfig({
                 "resources/css/app.css",
                 "resources/js/app.js",
                 "resources/js/scripts/pages/links/list-links.js",
+                "resources/js/scripts/pages/links/edit-links.js",
             ],
             refresh: true,
             postcss: [tailwindcss(), autoprefixer()],

@@ -2,7 +2,6 @@
     <article class="bg-white p-3 rounded-3xl max-w-md w-full">
         <div class="relative">
             <img
-                src="assets/themes/theme-demo/desert.png"
                 alt="Banner Profile"
                 class="w-full rounded-t-lg"
             />

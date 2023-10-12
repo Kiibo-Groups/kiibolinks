@@ -99,7 +99,7 @@ if ($customActive) {
                                         }
                                         ?>
                                         <a class="mx-2 fs-4" target="_blank" href="{{ $validlLink }}">
-                                            <i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>
+                                            <img width="50" src="{{ asset($Item['icon']) }}" alt="">
                                         </a>
                                     @endif
                                 @endforeach
