@@ -77,7 +77,7 @@ $navList = [
     ],
     [
         'icon' => 'fa-duotone fa-file-user',
-        'title' => 'Cuenta',
+        'title' => 'Configuración',
         'url' => 'dashboard/account/setting',
         'access' => 'user-admin',
     ],
