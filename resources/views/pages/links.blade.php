@@ -35,13 +35,15 @@
         @include('components.common.WarningAlert')
     @endif
 
-    <div class="grid grid-cols-3 gap-2">
+    <div class="grid grid-cols-1 place-content-center text-center gap-2 md:grid-cols-2 lg:grid-cols-3">
         @if (count($links) > 0)
             @foreach ($links as $link)
                 <biolink-card 
                     :id="'{{ $link->id }}'"
                     :name="'{{ $link->link_name }}'"
                     :url-name="'{{ $link->url_name }}'"
+                    :picture="'{{$link->thumbnail ? asset($link->thumbnail) : asset('assets/user-profile.png')}}'"
+                    :banner="'{{ asset('assets/banner-profile.jpeg') }}'"
                     :visited-count="'{{ count($link->visited) }}'"
                 ></biolink-card>
             @endforeach
@@ -150,7 +152,7 @@
         </div>
         @endif
 
-        <create-biolink-button></create-biolink-button>
+        {{-- <create-biolink-button></create-biolink-button> --}}
     </div>
 
 

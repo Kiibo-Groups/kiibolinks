@@ -3,10 +3,12 @@
         <div class="relative">
             <img
                 alt="Banner Profile"
-                class="w-full rounded-t-lg"
+                class="w-full rounded-t-lg h-36 object-cover"
+                :src="banner"
             />
             <img
                 alt="Profile Picture"
+                :src="picture"
                 class="absolute bottom-0 left-2/4 transform -translate-x-1/2 translate-y-1/2 w-24 h-24 rounded-full border-4 border-white"
             />
         </div>
@@ -60,7 +62,14 @@
 </template>
 
 <script setup>
-const props = defineProps(["id", "name", "urlName", "visitedCount"]);
+const props = defineProps([
+    "id",
+    "name",
+    "picture",
+    "banner",
+    "urlName",
+    "visitedCount",
+]);
 
 console.log(props);
 
