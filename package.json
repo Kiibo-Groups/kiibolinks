@@ -8,7 +8,9 @@
     "dependencies": {
         "@splidejs/splide": "^4.0.1",
         "@vitejs/plugin-vue": "^4.4.0",
-        "apexcharts": "^3.37.1"
+        "apexcharts": "^3.37.1",
+        "axios": "^1.5.1",
+        "vue-final-modal": "^4.4.5"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.16",
