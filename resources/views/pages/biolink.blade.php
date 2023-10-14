@@ -78,18 +78,18 @@ if ($customActive) {
                                     @if ($Item['name'] == 'email')
                                         <a class="mx-2 fs-4" _target="_blank" href="mailto:{{ $Item['link'] }}">
                                             <!--<i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>-->
-                                            <img src="{{ asset('assets/icons/socials/' + $Item['img']) }}" style="width: 40px; height: 40px; border-radius: 8px;" />
+                                            <img src="{{ asset('assets/icons/socials/' . $Item['img']) }}" style="width: 40px; height: 40px; border-radius: 8px;" />
                                         </a>
                                     @elseif($Item['name'] == 'telephone')
                                         <a href="tel:{{ $Item['link'] }}" class="mx-2 fs-4">
                                             <!--<i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>-->
-                                            <img src="{{ asset('assets/icons/socials/' + $Item['img']) }}" style="width: 40px; height: 40px; border-radius: 8px;" />
+                                            <img src="{{ asset('assets/icons/socials/' . $Item['img']) }}" style="width: 40px; height: 40px; border-radius: 8px;" />
                                         </a>
                                     @elseif($Item['name'] == 'whatsapp')
                                         <a href="https://api.whatsapp.com/send?phone={{ $Item['link'] }}"
                                             target="_blank" class="mx-2 fs-4">
                                             <!--<i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>-->
-                                            <img src="{{ asset('assets/icons/socials/' + $Item['img']) }}" style="width: 40px; height: 40px; border-radius: 8px;" />
+                                            <img src="{{ asset('assets/icons/socials/' . $Item['img']) }}" style="width: 40px; height: 40px; border-radius: 8px;" />
                                         </a>
                                     @else
                                         <?php
@@ -103,7 +103,7 @@ if ($customActive) {
                                         ?>
                                         <a class="mx-2 fs-4" target="_blank" href="{{ $validlLink }}">
                                             <!--<i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>-->
-                                            <img src="{{ asset('assets/icons/socials/' + $Item['img']) }}" style="width: 40px; height: 40px; border-radius: 8px;" />
+                                            <img src="{{ asset('assets/icons/socials/' . $Item['img']) }}" style="width: 40px; height: 40px; border-radius: 8px;" />
                                         </a>
                                     @endif
                                 @endforeach
