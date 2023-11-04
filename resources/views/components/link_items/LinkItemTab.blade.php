@@ -1,9 +1,10 @@
 <?php
     $user = auth()->user();
     $SA = $user->hasRole('SUPER-ADMIN');
+    session(["settings" => 1])    
 ?>
-
 <div class="d-flex align-items-center justify-content-between mb-4">
+    <!--
     <ul class="nav nav-pills" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
             <button 
@@ -36,15 +37,7 @@
             </button>
         </li>
     </ul>
-
-    <button 
-        class="btn btn-primary text-white"
-        data-bs-toggle="modal" 
-        data-bs-target="#addLinkItemsModal"
-    >
-        <i class="fa-solid fa-plus"></i>
-        {{__('Add Block')}}
-    </button>
+    --->
     @include('components.link_items.AddLinkItem')
 </div>
 
@@ -57,6 +50,7 @@
     >
         @include('components.link_items.LinkProfile')
         @include('components.link_items.LinkSocials')
+        @include('components.link_items.LinkItems')
         @include('components.link_items.LinkThems')
         
         @if($SA || $user->pricing_plan->name != "BASIC")
@@ -70,6 +64,6 @@
         class="tab-pane fade {{session('blocks') ? 'show active' : '';}}" 
         aria-labelledby="pills-profile-tab"
     >
-        @include('components.link_items.LinkItems')
+        
     </div>
 </div>

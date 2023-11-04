@@ -1,12 +1,17 @@
 <?php
 $user = Auth::user();
 ?>
-<nav class="dashboard-navbar m-3 mb-0 rounded-3">
-    <div class="container py-1 d-flex align-items-center justify-content-between">
+<nav class="dashboard-navbar mb-0 rounded-0">
+    <div class="container pb-0 d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center">
+            <!--
             <button class="btn d-block d-lg-none" id="expandSidebar">
                 <img width="20" height="20" src="{{ asset('assets/icons/menu.svg') }}" />
             </button>
+            -->
+            <h4 class="title d-block d-lg-none" id="expandSidebar">
+                LinkDrop
+            </h4>
             <h5 class="d-none d-lg-block">{{ ucfirst($user->name) }}</h5>
         </div>
 

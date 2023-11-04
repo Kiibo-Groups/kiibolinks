@@ -23,14 +23,16 @@
 .dashboard-sidebar-mobile {
     position: absolute;
     z-index: 100;
-    width: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
     overflow: hidden;
     background: #fff;
     box-shadow: 7px 0px 12px -6px rgba(0, 0, 0, 0.08);
     transition: all 0.4s;
     #mobileScreen {
-        width: 220px;
-        height: 100vh;
+        width: 100%;
         .sidebar-header {
             display: flex;
             align-items: center;
@@ -39,7 +41,24 @@
             padding: 16px 16px 0px 16px;
         }
         .sidebar-navlist {
-            padding: 16px;
+            flex-direction: row;
+            padding: 0;
+            text-align: center;
+            height: 60px;
+            flex: 1;
+            a.logo {
+                padding: 0;
+            }
+            a {
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+            }
+            i {
+                margin-right: 0;
+            }
         }
     }
 }
@@ -59,6 +78,8 @@
         padding: 8px 16px;
         text-decoration: none;
         border-radius: 4px;
+        display: flex;
+        justify-content: center;
         margin: 6px 0px;
         transition: ease-in-out 0.2s;
         i {

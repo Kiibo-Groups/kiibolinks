@@ -57,6 +57,18 @@
 
         @include('components.link_items.EditLinkItem')
     @endforeach
+
+    <div style="width: 100%; display: flex; justify-content: center;" class="my-4">
+        <button 
+        style="background-color: rgba(0,0,0,0.1); border: 1px dotted gray;"
+        class="btn text-gray"
+        data-bs-toggle="modal" 
+        data-bs-target="#addLinkItemsModal"
+        >
+        <i class="fa-solid fa-plus"></i>
+        {{__('Add Block')}}
+        </button>
+    </div>
 </div>
 
 <script>

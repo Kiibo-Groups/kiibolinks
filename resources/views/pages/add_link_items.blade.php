@@ -1,14 +1,14 @@
 @extends('layouts.dashboard.dashboard')
 
 @section('content')
-    <div class="container py-3 linkItemEditor">
+    <div class="container py-0 linkItemEditor">
         <div class="row">
             <div class="col-lg-7">
-                <div class="mb-4 d-flex align-items-center justify-content-between">
+                <div class="mb-0 d-flex align-items-center justify-content-between">
                     <div class="add-link">
-                        <h4 style="font-size: 24px">{{$link->link_name}}</h4>
-                    
-                        <p class="link-title">
+                        <!---<h4 style="text-align: center; width: 100%; font-size: 24px">{{$link->link_name}}</h4>-->  
+                        <!--
+                        <p c|lass="link-title">
                             {{__('Your link is :')}}
                             <a 
                                 target="_blank" class="px-1" 
@@ -17,6 +17,7 @@
                                 {{$link->url_name}}
                             </a>
                         </p>
+                        -->
                     </div>
                 </div>
                 {{-- {{$themes}} --}}

@@ -1,11 +1,10 @@
-<div class="card p-4 mb-4">
+<div class="px-4 mb-2">
     
     <form method="POST" action="/dashboard/update-link-profile/{{$link->id}}" enctype="multipart/form-data">
         @csrf
         @method("PUT")
 
         <div class="linkProfile">
-            <h4 class="title">{{__('Profile')}}</h4>
             <div class="imageContainer">
                 <div class="imageBox">
                     <img 
@@ -31,26 +30,24 @@
             </div>
     
             <div class="inputBox">
-                <div class="mb-3">
-                    <label class="form-label">{{__('Link Name')}}</label>
+                <div class="my-3">
                     <input 
-                        required 
+                        onchange="document.querySelector('#saveProfile').click()"
                         type="text" 
                         placeholder="Name" 
                         name="link_name" 
                         value="{{$link->link_name}}" 
-                        class="form-control" 
+                        class="form-control teditable text-center" 
                     >
                 </div>
     
                 <div>
-                    <label class="form-label">{{__('Short Bio')}}</label>
                     <textarea 
+                        onchange="document.querySelector('#saveProfile').click()"
                         rows="3" 
-                        required 
                         name="link_bio" 
                         placeholder="Write something about you." 
-                        class="form-control @error('link_bio') is-invalid @enderror"
+                        class="form-control teditable text-center @error('link_bio') is-invalid @enderror"
                     >{{$link->short_bio}}</textarea>
 
                     @error('link_bio')
@@ -62,7 +59,7 @@
             </div>
         </div>
 
-        <button class="w-100 btn btn-primary text-white mt-4" >
+        <button class="w-100 btn btn-primary text-white mt-0 d-none" id="saveProfile" >
             {{__('Save')}}
         </button>
     </form>

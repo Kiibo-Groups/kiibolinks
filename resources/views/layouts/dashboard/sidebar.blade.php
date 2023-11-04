@@ -94,12 +94,8 @@ $navList = [
     <div style="height: calc(100% - 58px)" data-simplebar class="scrollbar">
         <div class="sidebar-navlist">
             @foreach ($navList as $item)
-                @if ($item['title'] == 'Usuarios' ||
-                    $item['title'] == 'Suscripciones' ||
-                    $item['title'] == 'Pagos' ||
-                    $item['title'] == 'Ajustes' || 
-                    $item['title'] == 'Administrar temas' ||
-                    $item['title'] == 'Testimonios')
+                {{$item["access"]}}
+                @if ($item["access"] == "admin")
                     @role('SUPER-ADMIN')
                         <a href="{{ url($item['url']) }}" class="{{ request()->is($item['url']) ? 'active' : '' }}">
                             <i class="{{ $item['icon'] }}"></i>
