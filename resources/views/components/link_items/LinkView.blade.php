@@ -106,20 +106,20 @@ if ($customActive) {
                                     $Item = json_decode($encode, true);
                                     ?>
                                     @if ($Item['name'] == 'email')
-                                        <a class="mt-4 mx-2 fs-4" _target="_blank" href="mailto:{{ $Item['link'] }}" style="text-decoration: none;color: #000;">
+                                        <a class="mt-4 me-0 ms-2 fs-4" _target="_blank" href="mailto:{{ $Item['link'] }}" style="text-decoration: none;color: #000;">
                                             <!--<i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>-->
                                             <img src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}" style="width: 100px; height: 100px; border-radius: 15px;" />
                                             <span style="position: relative;display: block;font-size: 14px;text-transform: capitalize;" >{{ $Item['name'] }}</span>
                                         </a>
                                     @elseif($Item['name'] == 'telephone')
-                                        <a href="tel:{{ $Item['link'] }}" class="mt-4 mx-2 fs-4" style="text-decoration: none;color: #000;">
+                                        <a href="tel:{{ $Item['link'] }}" class="mt-4 me-0 ms-2 fs-4" style="text-decoration: none;color: #000;">
                                             <!--<i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>-->
                                             <img src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}" style="width: 100px; height: 100px; border-radius: 15px;" />
                                             <span style="position: relative;display: block;font-size: 14px;text-transform: capitalize;" >{{ $Item['name'] }}</span>
                                         </a>
                                     @elseif($Item['name'] == 'whatsapp')
                                         <a href="https://api.whatsapp.com/send?phone={{ $Item['link'] }}"
-                                            target="_blank" class="mt-4 mx-2 fs-4" style="text-decoration: none;color: #000;">
+                                            target="_blank" class="mt-4 me-0 ms-2 fs-4" style="text-decoration: none;color: #000;">
                                             <!--<i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>-->
                                             <img src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}" style="width: 100px; height: 100px; border-radius: 15px;" />
                                             <span style="position: relative;display: block;font-size: 14px;text-transform: capitalize;" >{{ $Item['name'] }}</span>
@@ -134,7 +134,7 @@ if ($customActive) {
                                             $validlLink = 'https://' . $linkUrl;
                                         }
                                         ?>
-                                        <a class="mt-4 mx-2 fs-4" target="_blank" href="{{ $validlLink }}" style="text-decoration: none;color: #000;">
+                                        <a class="mt-4 me-0 ms-2 fs-4" target="_blank" href="{{ $validlLink }}" style="text-decoration: none;color: #000;">
                                             <!--<i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>-->
                                             <img src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}" style="width: 100px; height: 100px; border-radius: 15px;" />
                                             <span style="position: relative;display: block;font-size: 14px;text-transform: capitalize;" >{{ $Item['name'] }}</span>
