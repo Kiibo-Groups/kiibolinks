@@ -102,6 +102,8 @@ if ($installed === true) {
         Route::put('/update-link-logo/{linkId}', [LinksController::class, 'UpdateLinkLogo'])->middleware('check_payment');
         Route::put('/update-link-profile/{linkId}', [LinksController::class, 'UpdateLinkProfile'])->middleware('check_payment');
         Route::put('/update-link-socials/{linkId}', [LinksController::class, 'UpdateLinkSocials'])->middleware('check_payment');
+        Route::put('/PicCompany-del/{id}', [LinksController::class, 'DelPicCompany'])->middleware('check_payment');
+        
         Route::delete('/delete-link/{linkId}', [LinksController::class, 'DeleteLink']);
         Route::get('/biolink/analytics/{linkId}/{statistics}', [LinksController::class, 'BioLinkAnalytics']);
         // Link routes end

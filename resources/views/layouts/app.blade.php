@@ -22,7 +22,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css?v='.time()) }}">
     <link rel="stylesheet" href="{{ asset('css/toastify.css') }}">
     <link rel="stylesheet" href="{{ asset('splide/splide.min.css') }}">
 </head>

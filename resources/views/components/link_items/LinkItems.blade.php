@@ -1,40 +1,33 @@
-<div 
-    id="bioLinkItems" 
-    class="bioLinkItems" 
-    data-id="{{$link->id}}" 
-    
->
+<div id="bioLinkItems" class="bioLinkItems" data-id="{{$link->id}}" >
+    <div style="width: 100%; display: flex; justify-content: space-between;" class="px-4 my-4">
+        <h4>{{ __('Add Links & Content') }}</h4>
+        <button style="background-color: rgba(0,0,0,0.1); border: 1px dotted gray;" class="btn text-gray" data-bs-toggle="modal"  data-bs-target="#addLinkItemsModal">
+            <i class="fa-solid fa-plus"></i>
+            {{__('Add Block')}}
+        </button>
+    </div>
+
     @foreach($link->items as $item)
         @if($item->item_type != "Socials")
             <section class="draggable" draggable="true">
-                <i 
-                    id="elementMove"
-                    style="font-size: 18px; color: #667085" 
-                    class="fa-solid fa-arrows-up-down-left-right" 
-                ></i>
-                <div 
-                    data-item_id="{{$item->id}}" 
-                    class="card border-0 shadow-sm w-100 py-3 px-3"
-                >
+                <i id="elementMove" style="font-size: 18px; color: #667085" class="fa-solid fa-arrows-up-down-left-right"></i>
+                
+                <div data-item_id="{{$item->id}}" class="card border-0 shadow-sm w-100 py-3 px-3">
                     <div class="d-flex align-items-center justify-content-between">
                         <i class="{{$item->item_icon}} me-3" style="font-size: 14px; color: #667085"></i>
                         <h6 class="m-0 text-center">{{$item->item_title}}</h6>
 
                         <div class="dropdown">
-                            <button 
-                                class="btn py-0 px-3" 
-                                style="font-size: 18px;"
-                                data-bs-toggle="dropdown" 
-                            >
-                                <i class="fa-solid fa-ellipsis-vertical" style="color: #667085" ></i>
+                            <button class="btn py-0 px-3" style="font-size: 18px;" data-bs-toggle="dropdown">
+                                <i class="fa-solid fa-ellipsis-vertical" style="color: #667085"></i>
                             </button>
+
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
                                     <button 
                                         class="dropdown-item" 
                                         data-bs-toggle="modal" 
-                                        data-bs-target="#modal{{$item->id}}"
-                                    >
+                                        data-bs-target="#modal{{$item->id}}">
                                         {{__('Edit')}}
                                     </button>
                                 </li>
@@ -58,17 +51,7 @@
         @include('components.link_items.EditLinkItem')
     @endforeach
 
-    <div style="width: 100%; display: flex; justify-content: center;" class="my-4">
-        <button 
-        style="background-color: rgba(0,0,0,0.1); border: 1px dotted gray;"
-        class="btn text-gray"
-        data-bs-toggle="modal" 
-        data-bs-target="#addLinkItemsModal"
-        >
-        <i class="fa-solid fa-plus"></i>
-        {{__('Add Block')}}
-        </button>
-    </div>
+    
 </div>
 
 <script>
@@ -95,7 +78,15 @@
             await axios.put(`/dashboard/biolink/update-position`, {
                 linkItems: updatedItem,
             });
-            window.location.reload();
+            // window.location.reload();
+            Toastify({
+                text: "Block Updated!!",
+                duration: 3000,
+                position: "center", // `left`, `center` or `right`
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+            }).showToast();
         });
     });
 

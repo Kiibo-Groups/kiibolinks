@@ -18,98 +18,42 @@
    }  
 @endphp
 
+
 <div class="mb-4 p-4">
-   <div class="d-flex align-items-center justify-content-center" style="flex-wrap: wrap" >
-      @if($link->socials)
-         <?php
-            $socials = json_decode($link->socials);
-         ?>
-         @foreach($socials as $item)
-            <?php
-               $encode = json_encode($item);
-               $Item = json_decode($encode, true);
-            ?>
-            @if($Item['name'] == 'email')
-               <a class="mx-2 fs-3" _target="_blank" href="mailto:{{$Item['link']}}">
-                  <img style="width: 100px; height: 100px;" style="color: #1d2939" src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}">
-               </a>
+   <div style="padding-bottom: 250px;">
+      <form name="socialLinksForm">
+         @csrf
 
-            @elseif($Item['name'] == 'telephone')
-               <a href="tel:{{$Item['link']}}" class="mx-2 fs-3">
-                  <img style="width: 100px; height: 100px;" style="color: #1d2939" src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}">
-               </a>
-
-            @elseif($Item['name'] == 'whatsapp')
-               <a href="https://api.whatsapp.com/send?phone={{$Item['link']}}" target="_blank" class="mx-2 fs-3">
-                  <img style="width: 100px; height: 100px;" style="color: #1d2939" src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}">
-               </a>
-
-            @else
-               <?php
-                  $linkUrl = explode("//", $Item['link'])[0];
-                  $validlLink;
-                  if ($linkUrl == 'https:' || $linkUrl == 'http:') {
-                     $validlLink = $Item['link'];
-                  } else {
-                     $validlLink = 'https://'.$linkUrl;
-                  }
-               ?>
-               <a class="mx-2 fs-3" target="_blank" href="{{$validlLink}}">
-                  <img style="width: 100px; height: 100px;" style="color: #1d2939" src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}">
-               </a>
-            @endif
+         <div style="width: 100%; display: flex; justify-content: space-between;" class="px-2 my-4">
+            <h4>{{ __('Social Links') }} <br />
+            <small style="font-size: 12px;">Deja en blanco el link a eliminar</small></h4> 
+            <button  type="submit" onclick="submitSocials({{$link->id}})" class="btn btn-primary text-white"> 
+               <i style="font-size: 20px" class="fa-regular fa-save"></i>
+               {{__('Save')}}
+            </button> 
+         </div>
+         @foreach($socialLinks as $social)
+            <div class="mb-3">
+               <div class="input-group mb-3">
+                  <img style="width: 50px; height: 50px;" style="color: #1d2939" src="{{ asset('assets/icons/socials/' . strtolower($social['name']) . '.jpg') }}">
+                  <input 
+                     type="text" 
+                     id="{{$social['linkType']}}Input" 
+                     class="form-control" 
+                     placeholder="{{$social['placeholder']}}"
+                     style="margin: 0 0 0 25px;border: 1px solid #e1e1e1;border-radius: 15px;"  
+                     value="{{$social['link']}}">
+               </div>
+            </div>
          @endforeach
-      @endif
 
-      <button 
-         type="button" 
-         style="padding: 6px; height: 100px; width: 100px;"
-         class="ms-2 btn btn-outline-primary shadow-sm"
-         data-bs-toggle="modal" 
-         data-bs-target="#exampleModal"
-      >
-         <i style="font-size: 20px" class="fa-regular fa-plus"></i>
-      </button>
+         <div style="width: 100%; display: flex; justify-content: end;" class="px-4 my-4">
+            <button  type="submit" onclick="submitSocials({{$link->id}})" class="btn btn-primary text-white">
+               <i style="font-size: 20px" class="fa-regular fa-save"></i>
+               {{__('Save')}}
+            </button> 
+         </div>
+      </form>
    </div>
 </div>
  
- <!-- Modal -->
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-      <div class="modal-content p-2">
-         <div class="modal-header border-0">
-            <h5 class="modal-title">{{__('Social Links')}}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         
-         <div class="modal-body" style="max-height: 400px;">
-            <form name="socialLinksForm">
-               @csrf
-
-               @foreach($socialLinks as $social)
-                  <div class="mb-3">
-                     <div class="input-group mb-3">
-                        <img style="width: 100px; height: 100px;" style="color: #1d2939" src="{{ asset('assets/icons/socials/' . strtolower($social['name']) . '.jpg') }}">
-                        <input 
-                           type="text" 
-                           id="{{$social['linkType']}}Input" 
-                           class="form-control px-2 border-start-0" 
-                           placeholder="{{$social['placeholder']}}"
-                           value="{{$social['link']}}"
-                        >
-                     </div>
-                  </div>
-               @endforeach
-
-               <button 
-                  type="submit" 
-                  onclick="submitSocials({{$link->id}})"
-                  class="mt-3 text-white form-control btn btn-primary"
-               >
-                  {{__('Save changes')}}
-               </button>
-            </form>
-         </div>
-      </div>
-   </div>
- </div>

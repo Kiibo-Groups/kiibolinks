@@ -72,7 +72,7 @@
 
 
     <script src="{{ asset('js/utils.js') }}"></script>
-    <script src="{{ asset('js/link-setting.js') }}"></script>
+    <script src="{{ asset('js/link-setting.js?v='.time()) }}"></script>
     <script src="{{ asset('js/qrcode-custom.js') }}"></script>
     <script src="{{ asset('js/link-items-add.js') }}"></script>
     <script src="{{ asset('js/payment.js') }}"></script>

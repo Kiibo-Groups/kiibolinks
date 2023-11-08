@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ $link->thumbnail ? asset($link->thumbnail) : asset('assets/user-profile.png') }}">
     {{-- Sript --}}
     <script src="{{ asset('js/fontawesome.js') }}" ></script>
 
@@ -54,18 +56,52 @@ if ($customActive) {
             min-height: 100vh;
             background-attachment: fixed;
             {{ $backgroundStyle }};
+
+            padding: 0;
+            padding-bottom: 0px;
+            position: relative;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #fffff;
+            box-shadow: rgb(128 128 128 / 35%) 0px 4px 6.84px;
+            -webkit-box-flex: 1;
+            -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            width: 100%;
         ">
-        <div class="container">
-            <div class="row mx-auto py-3">
-                <div class="col-lg-7 mx-auto">
+        <div class="container" style="padding-left: 0 !important;padding-right: 0 !important;">
+            <div class="row mx-auto" style="margin-left: 0 !important;margin-right: 0 !important;padding-left: 0 !important;padding-right: 0 !important;">
+                <div class="col-lg-12 mx-auto" style="margin-left: 0 !important;margin-right: 0 !important;padding-left: 0 !important;padding-right: 0 !important;">
+
+                    
+                    <div style="height:200px" class="css-1hop7p4">
+                        <img src="{{ $link->background ? asset($link->background) : asset('assets/background.png') }}" alt="banner image" 
+                        style="object-fit: cover;width: 100%;height: inherit;" id="imageContainer">
+                    </div>
+                   
+
                     <div class="linkProfile">
-                        <img 
-                        alt="" id="linkProfileImg"
-                        src="{{ $link->thumbnail ? asset($link->thumbnail) : asset('assets/user-profile.png') }}"
-                        >
-                        <h5 class="mt-2 textContent">{{ $link->link_name }}</h5>
+                        <div class="css-ddj3gs">
+                            <img  alt="" id="linkProfileImg" src="{{ $link->thumbnail ? asset($link->thumbnail) : asset('assets/user-profile.png') }}">
+                        </div>
+                        @if($link->company_pic)
+                        <div style="opacity: 1; margin-top: -92px; margin-left: 151px; z-index: 2;" class="css-1lj06q0">
+                            <img src="{{ $link->company_pic ? asset($link->company_pic) : asset('assets/user-profile.png.png') }}" class="profile-logo" alt="logo">
+                        </div>
+                        @endif
+                        
+                        <div style="display: flex; margin-top: 44px;">
+                            <h3 class="mt-2 textContent">{{ $link->link_name }}</h3>
+                        </div>
+                        <div style="display: flex;">
+                            <h6 class="mt-2 textContent">{{ $link->link_jobtitle }} at {{ $link->link_company }}</h6>
+                        </div>
+                        <p class="py-2 textContent" style="opacity: 0.8;">{{ $link->link_location }}</p>
+                        
                         <p class="py-2 textContent">{{ $link->short_bio }}</p>
-                        <div class="d-flex justify-content-center" style="flex-wrap: wrap">
+                        <div class="d-flex justify-content-center" style="box-sizing: border-box;flex-flow: wrap;width: 100%;-moz-box-align: stretch;align-items: stretch;-moz-box-pack: center;max-width: 350px;">
                             @if ($link->socials)
                                 <?php
                                 $socials = json_decode($link->socials);
@@ -76,20 +112,23 @@ if ($customActive) {
                                     $Item = json_decode($encode, true);
                                     ?>
                                     @if ($Item['name'] == 'email')
-                                        <a class="mx-2 fs-4" _target="_blank" href="mailto:{{ $Item['link'] }}">
+                                        <a class="mt-4 mx-2 fs-4" _target="_blank" href="mailto:{{ $Item['link'] }}" style="text-decoration: none;color: #000;">
                                             <!--<i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>-->
-                                            <img src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}" style="width: 100px; height: 100px; border-radius: 8px;" />
+                                            <img src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}" style="width: 100px; height: 100px; border-radius: 15px;" />
+                                            <span style="position: relative;display: block;font-size: 14px;text-transform: capitalize;" >{{ $Item['name'] }}</span>
                                         </a>
                                     @elseif($Item['name'] == 'telephone')
-                                        <a href="tel:{{ $Item['link'] }}" class="mx-2 fs-4">
+                                        <a href="tel:{{ $Item['link'] }}" class="mt-4 mx-2 fs-4" style="text-decoration: none;color: #000;">
                                             <!--<i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>-->
-                                            <img src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}" style="width: 100px; height: 100px; border-radius: 8px;" />
+                                            <img src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}" style="width: 100px; height: 100px; border-radius: 15px;" />
+                                            <span style="position: relative;display: block;font-size: 14px;text-transform: capitalize;" >{{ $Item['name'] }}</span>
                                         </a>
                                     @elseif($Item['name'] == 'whatsapp')
                                         <a href="https://api.whatsapp.com/send?phone={{ $Item['link'] }}"
-                                            target="_blank" class="mx-2 fs-4">
+                                            target="_blank" class="mt-4 mx-2 fs-4" style="text-decoration: none;color: #000;">
                                             <!--<i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>-->
-                                            <img src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}" style="width: 100px; height: 100px; border-radius: 8px;" />
+                                            <img src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}" style="width: 100px; height: 100px; border-radius: 15px;" />
+                                            <span style="position: relative;display: block;font-size: 14px;text-transform: capitalize;" >{{ $Item['name'] }}</span>
                                         </a>
                                     @else
                                         <?php
@@ -101,17 +140,19 @@ if ($customActive) {
                                             $validlLink = 'https://' . $linkUrl;
                                         }
                                         ?>
-                                        <a class="mx-2 fs-4" target="_blank" href="{{ $validlLink }}">
+                                        <a class="mt-4 mx-2 fs-4" target="_blank" href="{{ $validlLink }}" style="text-decoration: none;color: #000;">
                                             <!--<i style="color: #1d2939" class="{{ $Item['icon'] }}"></i>-->
-                                            <img src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}" style="width: 100px; height: 100px; border-radius: 8px;" />
+                                            <img src="{{ asset('assets/icons/socials/' . $Item['name'] . '.jpg') }}" style="width: 100px; height: 100px; border-radius: 15px;" />
+                                            <span style="position: relative;display: block;font-size: 14px;text-transform: capitalize;" >{{ $Item['name'] }}</span>
                                         </a>
                                     @endif
                                 @endforeach
                             @endif
                         </div>
+                        
                     </div>
 
-                    <div>
+                    <div style="padding-left: 15px;padding-right: 15px;">
                         @foreach ($link->items as $item)
                             <div class="text-center mb-3">
                                 <?php
@@ -209,9 +250,9 @@ if ($customActive) {
             </div>
         </div>
 
-        <div>
+        {{-- <div>
             <img width="40px" style="border-radius: 6px" src="{{ asset($link->branding) }}" alt="">
-        </div>
+        </div> --}}
     </div>
 
     <script>

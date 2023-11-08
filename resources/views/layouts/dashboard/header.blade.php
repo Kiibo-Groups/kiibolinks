@@ -9,10 +9,12 @@ $user = Auth::user();
                 <img width="20" height="20" src="{{ asset('assets/icons/menu.svg') }}" />
             </button>
             -->
-            <h4 class="title d-block d-lg-none" id="expandSidebar">
-                LinkDrop
-            </h4>
-            <h5 class="d-none d-lg-block">{{ ucfirst($user->name) }}</h5>
+           
+            <h5 class="d-none d-lg-block">
+                @yield('title_header') 
+                {{-- {{ ucfirst($user->name) }} --}}
+                
+            </h5>
         </div>
 
         <div class="dropdown">

@@ -342,8 +342,18 @@ async function submitSocials(linkId) {
 
         await axios.put(`/dashboard/update-link-socials/${linkId}`, {
             socials: JSON.stringify(items),
-        });
-        window.location.reload();
+        }); 
+
+        Toastify({
+            text: "Social Link Updated!!",
+            duration: 3000,
+            position: "center", // `left`, `center` or `right`
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+        }).showToast();
+    
+        // window.location.reload();
     };
 }
 // ----------------------------------------------------

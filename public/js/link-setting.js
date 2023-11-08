@@ -12,14 +12,23 @@ if (themes) {
             const theme = JSON.parse(element.dataset.theme);
 
             document.getElementById("bioLink").style = `
-                height: 80vh;
-                width: 380px !important;
-                overflow: auto;
-                border-radius: 30px;
-                border: 10px solid black;
                 color: ${theme.text_color};
                 font-family: ${theme.font_family} !important;
                 ${theme.background}
+                width: 420px;
+                height: 800px; 
+                padding: 0;
+                padding-bottom: 0px;
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                box-shadow: rgb(128 128 128 / 35%) 0px 4px 6.84px;
+                -webkit-box-flex: 1;
+                -moz-transform: scale(0.6);
+                overflow: hidden;
+                border-radius: 30px;
+                overflow-y: scroll;
+                top: -120px;
             `;
 
             document.querySelectorAll(".mobileViewLinkItem").forEach((item) => {
@@ -54,9 +63,48 @@ idChangeValue1("linkProfileInput", (e) => {
     const reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.addEventListener("load", () => {
-        document.getElementById("linkProfileImg").src = reader.result;
+        document.getElementById("linkProfileImg").src = reader.result;  
+       
     });
 });
+
+// Update link Background Profile photo
+idChangeValue1("linkBackgroundInput", (e) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.addEventListener("load", () => {
+        document.getElementById("linkBackgroundImg").src = reader.result; 
+    });
+});
+
+
+// Update link Background Profile photo
+idChangeValue1("linkCompanyInput", (e) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.addEventListener("load", () => {
+        document.getElementById("linkCompanyImg").src = reader.result; 
+    });
+});
+
+
+let DelcompanyPic = document.getElementById('DelcompanyPic');
+DelcompanyPic.addEventListener("click", (el) => {
+    let linkId = DelcompanyPic.getAttribute('data-link');
+    SendDelCP(linkId);
+});
+
+async function SendDelCP(linkId) {
+    const send = await axios.put(`/dashboard/PicCompany-del/${linkId}`).then((response) => {
+        let data = JSON.parse(response.request.response);
+       if (data.status == true) {
+            location.reload();
+       }
+    }).catch((error) => {
+        console.log("Error: ",error);
+    });
+    
+}
 
 // --------------------------------------------------------------
 // Creating custom theme

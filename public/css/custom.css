@@ -11,7 +11,9 @@ body p {
   color: #1d2939;
 }
 body .container {
-  max-width: 1200px !important;
+  /* max-width: 1200px !important; */
+  max-width: 100% !important;
+  padding: 0px 60px;
 }
 body .textPrimary {
   color: #1d2939 !important;
@@ -294,7 +296,7 @@ body {
 
 /* Dashboard sidebar style */
 .dashboard-sidebar #sidebarContainer {
-  width: 240px;
+  width: 206px;
   height: 100vh;
   background: #fff;
   box-shadow: 7px 0px 12px -6px rgba(0, 0, 0, 0.08);
@@ -368,7 +370,7 @@ body {
   text-decoration: none;
   border-radius: 4px;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   margin: 6px 0px;
   transition: ease-in-out 0.2s;
 }
@@ -402,10 +404,10 @@ body {
 
 .dashboard-navbar {
   height: 70px;
-  background: #fff;
+  /* background: #fff; */
   display: flex;
   align-items: center;
-  box-shadow: 0px 10px 12px -6px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0px 10px 12px -6px rgba(0, 0, 0, 0.08); */
   position: relative;
   z-index: 10;
 }
@@ -608,6 +610,7 @@ body {
   padding: 0;
   width: 100%;
 }
+
 #customTheme .buttonColorBox label {
   position: absolute;
   top: 0;
@@ -637,22 +640,84 @@ body {
 }
 .linkItemEditor .linkProfile .inputBox {
   width: 100%;
+  margin-top: 30px;
 }
 .linkItemEditor .linkProfile .imageContainer {
-  width: 220px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-content: space-around;
+  padding-top: 40px;
 }
+/* Profile */
 .linkItemEditor .linkProfile .imageContainer .imageBox {
   position: relative;
 }
 .linkItemEditor .linkProfile .imageContainer .imageBox #linkProfileImg {
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
 }
-.linkItemEditor .linkProfile .imageContainer .imageBox .imageUploader {
+.linkItemEditor .linkProfile .imageContainer .imageBox .imageDel {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  color: #2e90fa;
+}
+
+/* Background */
+.linkItemEditor .linkProfile .imageContainer .imageBoxBackground {
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 250px;
+  height: 110px;
+}
+
+.linkItemEditor .linkProfile .imageContainer .imageBoxBackground #linkBackgroundImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 13.5px;
+  object-fit: cover;
+  border: 2px solid rgb(234, 234, 234);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+}
+
+.linkItemEditor .linkProfile .imageContainer .imageBoxBackground .imageDel {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  color: #2e90fa;
+  z-index: 2003;
+}
+
+/* imageBoxCompany */
+
+.linkItemEditor .linkProfile .imageContainer .imageBoxCompany {
+  position: relative;
+  text-align: center;
+}
+.linkItemEditor .linkProfile .imageContainer .imageBoxCompany #linkCompanyImg {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+}
+.linkItemEditor .linkProfile .imageContainer .imageBoxCompany .imageDel {
   position: absolute;
   top: 4px;
   right: 4px;
@@ -1044,14 +1109,60 @@ body {
   margin-right: 4px;
 }
 
+
 .viewBioLink .linkProfile {
   margin-bottom: 28px;
+  margin-top: -90px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  -moz-box-align: center;
+  align-items: center;
 }
+
+
+.viewBioLink .linkProfile .css-ddj3gs {
+  height: 168px;
+  width: 168px;
+  border-radius: 100%;
+  border-color: rgb(255, 255, 255);
+  border-width: 6px;
+  border-style: solid;
+  overflow: hidden;
+}
+
+.viewBioLink .linkProfile .css-1lj06q0 {
+  height: 62px;
+  width: 62px;
+  border-radius: 100%;
+  border-color: rgb(255, 255, 255);
+  background-color: rgb(204, 204, 204);
+  border-width: 4px;
+  border-style: solid;
+  overflow: hidden;
+  box-shadow: rgba(128, 128, 128, 0.25) 0px 4px 4.84px;
+}
+
+
+.viewBioLink .linkProfile .css-1lj06q0 img {
+  margin-left: -4px;
+  margin-top: -4px;
+  padding: 4px;
+  object-fit: cover;
+  width: inherit;
+  height: inherit;
+}
+
 .viewBioLink .linkProfile #linkProfileImg {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  margin-left: -6px;
+  margin-top: -6px;
+  padding: 2px;
+  object-fit: cover;
+  width: inherit;
+  height: inherit;
 }
+
 .viewBioLink .mobileViewLinkItem {
   transition: all 0.15s;
 }
@@ -1078,17 +1189,27 @@ body {
 .mobileLinkContainer {
   display: flex;
   justify-content: end;
+  padding: 0 60px;
+  position: relative;
 }
 .mobileLinkContainer .mobileViewLink {
   height: 80vh;
   width: 380px !important;
   overflow: auto;
   border-radius: 30px;
-  border: 10px solid black;
+  border: 1px solid rgb(53, 53, 53);
   position: fixed;
 }
+
 .mobileLinkContainer .mobileViewLink .linkProfileMobile {
-  margin-bottom: 20px;
+  margin-bottom: 20px; 
+  margin-top: -90px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  -moz-box-align: center;
+  align-items: center;
 }
 .mobileLinkContainer .mobileViewLink .linkProfileMobile #linkProfileImgMobile {
   width: 100px;
@@ -1181,4 +1302,14 @@ body {
   width: 100%;
   margin-top: 40px;
   cursor: pointer;
+}
+
+ 
+.nav-pills-links .nav-link { 
+  color: #000 !important;
+}
+.nav-pills-links .nav-link.active,
+.nav-pills-links .show > .nav-link {
+  color: #fff;
+  background-color: rgba(220, 234, 255, 0.438);
 }

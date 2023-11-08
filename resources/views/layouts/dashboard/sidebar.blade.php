@@ -16,39 +16,9 @@ $navList = [
         'access' => 'admin',
     ],
     [
-        'icon' => 'fa-duotone fa-credit-card',
-        'title' => 'Suscripciones',
-        'url' => 'dashboard/subscription-history',
-        'access' => 'admin',
-    ],
-    [
         'icon' => 'fa-duotone fa-link-simple',
-        'title' => 'Bio Links',
+        'title' => $SA ? 'Bio Links' : 'Mi Cuenta',
         'url' => 'dashboard/links',
-        'access' => 'user-admin',
-    ],
-    [
-        'icon' => 'fa-duotone fa-link-horizontal',
-        'title' => 'Short Links',
-        'url' => 'dashboard/short-links',
-        'access' => 'user-admin',
-    ],
-    [
-        'icon' => 'fa-duotone fa-memo',
-        'title' => 'Projectos',
-        'url' => 'dashboard/project',
-        'access' => 'user-admin',
-    ],
-    [
-        'icon' => 'fa-duotone fa-qrcode',
-        'title' => 'Códigos QR',
-        'url' => 'dashboard/qrcodes',
-        'access' => 'user-admin',
-    ],
-    [
-        'icon' => 'fa-duotone fa-tag',
-        'title' => $SA ? 'Planes' : 'Plan Actual',
-        'url' => $SA ? 'dashboard/plans' : 'dashboard/plan',
         'access' => 'user-admin',
     ],
     [
@@ -59,7 +29,7 @@ $navList = [
     ],
     [
         'icon' => 'fa-duotone fa-palette',
-        'title' => 'Administrar temas',
+        'title' => 'Temas',
         'url' => 'dashboard/themes',
         'access' => 'admin',
     ],
@@ -94,7 +64,7 @@ $navList = [
     <div style="height: calc(100% - 58px)" data-simplebar class="scrollbar">
         <div class="sidebar-navlist">
             @foreach ($navList as $item)
-                {{$item["access"]}}
+               
                 @if ($item["access"] == "admin")
                     @role('SUPER-ADMIN')
                         <a href="{{ url($item['url']) }}" class="{{ request()->is($item['url']) ? 'active' : '' }}">

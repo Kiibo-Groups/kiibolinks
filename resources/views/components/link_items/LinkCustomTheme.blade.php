@@ -50,8 +50,7 @@
       <div class="col-6 col-lg-4 p-3">
          <div 
             style="height: 240px"
-            class="customColorBox {{$customTheme ? $link->custom_theme->background_type == "color" ? 'activeItem' : '' : ''}}" 
-         >
+            class="customColorBox {{$customTheme ? $link->custom_theme->background_type == "color" ? 'activeItem' : '' : ''}}" >
             <input 
                type="color" 
                id="customColorInput" 

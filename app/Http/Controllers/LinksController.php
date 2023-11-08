@@ -194,39 +194,78 @@ class LinksController extends Controller
         $rules = [
             'link_bio' => 'max:200',
             'thumbnail' => 'image|mimes:jpg,png,jpeg,svg|max:5120',
+            'background' => 'image|mimes:jpg,png,jpeg,svg|max:5120',
+            'company_pic' => 'image|mimes:jpg,png,jpeg,svg|max:5120',
         ];
         $messages = [
             'link_bio.max' => 'Bio description length must be 1 to 200 characters',
             'thumbnail.image' => 'Allow only jpg,png,jpeg,svg type image',
             'thumbnail.max' => 'Image size will be 5MB',
+            'background.image' => 'Allow only jpg,png,jpeg,svg type image',
+            'background.max' => 'Image size will be 5MB',
+            'company_pic.image' => 'Allow only jpg,png,jpeg,svg type image',
+            'company_pic.max' => 'Image size will be 5MB',
         ];
         
         $this->validate($req, $rules, $messages, );
         $link = Link::find($linkId);
         $thumbnail = $req->thumbnail;
+        $background = $req->background;
+        $company_pic = $req->company_pic;
         
+        $data['link_name'] = ucwords($req->link_name);
+        $data['short_bio'] = $req->link_bio; 
+        $data['link_location'] = ucwords($req->link_location);
+        $data['link_jobtitle'] = ucwords($req->link_jobtitle);
+        $data['link_company'] = $req->link_company;
+
         if ($thumbnail) {
             File::delete($link->thumbnail);
 
             $location = public_path('/upload/');
             $image = Image::make($thumbnail);
             $image->save($location.time().$thumbnail->getClientOriginalName());
-            $imgUrl = 'upload/'.$image->filename.'.'.$image->extension;
+            $data['thumbnail'] = 'upload/'.$image->filename.'.'.$image->extension;
+        } 
 
-            Link::where('id', $linkId)->update([
-                'link_name' => $req->link_name,
-                'short_bio' => $req->link_bio,
-                'thumbnail' => $imgUrl,
-            ]);
-        } else {
-            Link::where('id', $linkId)->update([
-                'link_name' => $req->link_name,
-                'short_bio' => $req->link_bio,
-            ]);
-        }
+        if ($background) {
+            File::delete($link->background);
+
+            $location = public_path('/upload/backgrounds/');
+            $image = Image::make($background);
+            $image->save($location.time().$background->getClientOriginalName());
+            $data['background'] = 'upload/backgrounds/'.$image->filename.'.'.$image->extension;
+        } 
+
+        if ($company_pic) {
+            File::delete($link->company_pic);
+
+            $location = public_path('/upload/backgrounds/');
+            $image = Image::make($company_pic);
+            $image->save($location.time().$company_pic->getClientOriginalName());
+            $data['company_pic'] = 'upload/backgrounds/'.$image->filename.'.'.$image->extension;
+        } 
+        
+
+        Link::where('id', $linkId)->update($data);
         
         return back();
     }
+
+    public function DelPicCompany(Request $req, $linkId)
+    {
+
+        $link = Link::find($linkId);
+        File::delete($link->company_pic);
+
+        $link->company_pic = null;
+        $link->save();
+
+        return response()->json([
+            'status' => true
+        ]);
+    }
+
     //--------------------------------------------------
 
 
@@ -380,8 +419,8 @@ class LinksController extends Controller
                 'link_id' => $link->id,
             ]);
 
-            if ($link->link_type == 'shortlink') {
-                return redirect()->to(url($link->external_url));
+            if ($link->link_type == 'shortlink') { 
+               return redirect()->to(url($link->external_url));
             } else {
                 return view('pages.biolink', compact('link'));
             }

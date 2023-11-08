@@ -29,15 +29,14 @@
 {{-- {{dd($plan->name)}} --}}
 <div class="card p-4 mb-4 themes">
     <h4 class="mb-2">{{__('Themes')}}</h4>
-    <div class="row">
+    <div class="row" style="padding-bottom: 150px;  ">
         @foreach($themes as $theme)
             <div class="col-6 col-lg-4 p-3">
                 <div 
                     style="{{$theme->background}}"
                     data-link="{{json_encode($link)}}"
                     data-theme="{{json_encode($theme)}}"
-                    class="themeCard {{$link->theme_id == $theme->id ? 'active' : ''}}{{themeAccess($plan, $theme, $SA) ? 'free' : 'pro'}}" 
-                >
+                    class="themeCard {{$link->theme_id == $theme->id ? 'active' : ''}}{{themeAccess($plan, $theme, $SA) ? 'free' : 'pro'}}" >
                     @for ($i=0; $i<4 ; $i++)
                         <div class="contentButton" style="{{$theme->button_style}}"></div>
                     @endfor
@@ -51,49 +50,5 @@
                 </h6>
             </div>
         @endforeach
-
-        <div class="col-6 col-lg-4 p-3">
-            <div 
-                onclick="createCustomTheme({{$link}})"
-                class="themeCard {{$SA || $link->custom_theme_active ? 'active' : ''}} {{$SA || $plan->custom_theme ? 'free' : 'pro'}}" 
-            >
-                <span>{{__('Create Theme')}}</span>
-
-                <div id="{{$SA || $plan->custom_theme ? 'freeTheme' : 'proTheme'}}">
-                    <span>{{$SA || $plan->custom_theme ? '' : 'Not Access'}}</span>
-                </div>
-            </div>
-            <h6 class="text-center mt-2">
-                {{__('Create Theme')}}
-            </h6>
-        </div>
-
-        <div class="col-6 col-lg-4 p-3">
-            <div class="bioLinkLogoBox {{!$SA && $plan->name == 'BASIC' ? 'pro' : 'free'}}">
-                <img 
-                    alt=""
-                    id="bioLinkLogo" 
-                    src="{{asset($link->branding)}}" 
-                >
-                <label class="bioLinkLogoUploader" for="bioLinkLogoInput">
-                    <i class="fa-solid fa-camera"></i>
-                </label>
-                <input hidden id="prevLogo" value="{{$link->branding}}" >
-                <input 
-                    hidden 
-                    type="file" 
-                    name="bioLinkLogo"
-                    id="bioLinkLogoInput"
-                    data-themeid="{{$link->id}}"
-                >
-
-                <div id="{{!$SA && $plan->name == 'BASIC' ? 'proTheme' : 'freeTheme'}}">
-                    <span>{{!$SA && $plan->name == 'BASIC' ? 'Standard/Premium' : ''}}</span>
-                </div>
-            </div>
-            <h6 class="text-center mt-2">
-                {{__('Manage Logo')}}
-            </h6>
-        </div>
     </div>
 </div>

@@ -1,31 +1,33 @@
 @extends('layouts.dashboard.dashboard')
+@section('title_header')
+{{$link->link_name}}
+@endsection
 
 @section('content')
     <div class="container py-0 linkItemEditor">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="mb-0 d-flex align-items-center justify-content-between">
-                    <div class="add-link">
-                        <!---<h4 style="text-align: center; width: 100%; font-size: 24px">{{$link->link_name}}</h4>-->  
-                        <!--
-                        <p c|lass="link-title">
-                            {{__('Your link is :')}}
-                            <a 
-                                target="_blank" class="px-1" 
-                                href="/{{$link->url_name}}" 
-                            >
-                                {{$link->url_name}}
-                            </a>
-                        </p>
-                        -->
+        <div class="row" style="background: #fff !important;padding: 15px;border-radius: 25px;box-shadow: 0px 10px 12px -6px rgba(0, 0, 0, 0.08);max-height: calc(100vh - 175px);overflow: hidden;">
+            <div class="col-lg-8">
+                <div class="row">
+                    <div style="flex-direction: row;display: flex;">
+                        @include('components.link_items.LinkItemTab')
                     </div>
                 </div>
-                {{-- {{$themes}} --}}
-                @include('components.link_items.LinkItemTab')
             </div>
 
-            <div class="d-none d-lg-block col-lg-5">
-                <div class="mobileLinkContainer">
+            <div class="col-lg-4 d-none d-lg-block">
+                <div style="display: flex;justify-content: center;flex-direction: column;text-align: center;">
+                    <p style="font-size: 14px;opacity: 0.8;">{{ __('Card live preview') }}</p>
+
+                    <a href="/{{ $link->url_name }}" target="_blank" style="margin: 20px 0 0 0;text-decoration: none;font-size: 13px;">
+                        <span class="mt-2 textContent">
+                            View Card&nbsp;
+                            <i class="fa-regular fa-share-from-square"></i>
+                        </span>
+                    </a>
+                </div>
+            
+
+                <div class="mobileLinkContainer" id="mobileLinkContainer">
                     @include('components.link_items.LinkView')
                 </div>
             </div>
