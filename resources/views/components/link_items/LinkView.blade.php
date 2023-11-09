@@ -61,8 +61,7 @@ if ($customActive) {
             margin-right: auto;
             box-shadow: rgb(128 128 128 / 35%) 0px 4px 6.84px;
             -webkit-box-flex: 1;
-            scale:0.6;
-            -moz-transform: scale(0.6);
+            scale:0.6; 
             overflow: hidden;
             border-radius: 30px;
             overflow-y: scroll;
