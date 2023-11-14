@@ -4,7 +4,7 @@
     session(["settings" => 1])    
 ?>
 
-<div class="col-lg-2" style="border-right: 1px solid #e1e1e1;">
+<div class="col-lg-2 col-md-1" style="border-right: 1px solid #e1e1e1;">
     <div id="sidebarContainer" class="rounded-end"> 
         <div style="height: calc(100% - 58px)" data-simplebar class="scrollbar">
             <div class="sidebar-navlist" style="padding: 0 !important;">
@@ -20,8 +20,9 @@
                             aria-controls="pills-home" 
                             aria-selected="true"
                             onclick="tabActiveController('{{session('settings')}}', 'settings')">
-                            <i class="fa-duotone fa-users"></i>
-                            {{__('About')}}
+                           
+                            <span class="d-lg-none d-md-block"> <i class="fa-duotone fa-users"></i></span>
+                            <span class="d-lg-block d-md-none">{{__('Perfíl')}}</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation" style="width: 100%;padding: 10px 0;">
@@ -35,8 +36,9 @@
                             aria-controls="pills-sociales" 
                             aria-selected="false"
                             onclick="tabActiveController('{{session('sociales')}}', 'sociales')">
-                            <i class="fa-duotone fa-link-simple"></i>
-                            {{__('Content')}} 
+                           
+                            <span class="d-lg-none d-md-block"><i class="fa-duotone fa-link-simple"></i></span>
+                            <span class="d-lg-block d-md-none">{{__('Contenido')}}</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation" style="width: 100%;padding: 10px 0;">
@@ -50,8 +52,9 @@
                             aria-controls="pills-bloques" 
                             aria-selected="false"
                             onclick="tabActiveController('{{session('bloques')}}', 'bloques')">
-                            <i class="fa-duotone fa-qrcode"></i>
-                            {{__('Blocks')}} 
+                            
+                            <span class="d-lg-none d-md-block"><i class="fa-duotone fa-qrcode"></i></span>
+                            <span class="d-lg-block d-md-none">{{__('Bloques')}}</span>
                         </button>
                     </li>
                     <li class="nav-item" role="presentation" style="width: 100%;padding: 10px 0;">
@@ -65,8 +68,9 @@
                             aria-controls="pills-themes" 
                             aria-selected="false"
                             onclick="tabActiveController('{{session('themes')}}', 'themes')">
-                            <i class="fa-duotone fa-palette"></i> 
-                            {{__('Theme')}} 
+                            
+                            <span class="d-lg-none d-md-block"><i class="fa-duotone fa-palette"></i></span>
+                            <span class="d-lg-block d-md-none">{{__('Temas')}}</span>
                         </button> 
                     </li>
                 </ul>
@@ -75,7 +79,7 @@
     </div>
 </div>
 
-<div class="col-lg-9" style="padding-left: 24px;height: 100vh;overflow: hidden;overflow-y: scroll;"> 
+<div class="col-lg-9 col-md-12" style="height: 100vh;overflow: hidden;overflow-y: scroll;"> 
     <div class="tab-content" id="pills-tabContent">
         <div role="tabpanel"
             id="pills-home" 

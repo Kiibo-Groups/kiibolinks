@@ -56,7 +56,6 @@ $navList = [
 
 <div id="sidebarContainer" class="rounded-end">
     <a class="sidebar-header" href="/">
-        
         <img width="36px" height="36px" class="rounded" src="{{ asset($app->logo) }}" alt="">
         <h5 class="ms-3">{{ $app->title }}</h5>
     </a>
@@ -85,7 +84,7 @@ $navList = [
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                 <i class="fa-duotone fa-right-from-bracket"></i>
-                {{ __('Log Out') }}
+                {{ __('Cerrar Sesión') }}
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf

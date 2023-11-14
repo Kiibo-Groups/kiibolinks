@@ -22,7 +22,7 @@
             data-bs-target="#createLink"
         >
             <i class="fa-solid fa-circle-plus" style="font-size: 14px" ></i>
-            {{__('Create Link')}}
+            {{__('Crear Link')}}
         </button>
 
         @include('components.links.CreateLink')
@@ -33,13 +33,13 @@
             <table class="table table-borderless styled-table">
                 <thead>
                     <tr>
-                        <th scope="col" class="">{{__('Link Name')}}</th>
-                        <th scope="col" class="text-center">{{__('Customize Link')}}</th>
-                        <th scope="col" class="text-center">{{__('Views Link')}}</th>
-                        <th scope="col" class="text-center">{{__('Total Views')}}</th>
-                        <th scope="col" class="text-center">{{__('QR Code')}}</th>
-                        <th scope="col" class="text-center">{{__('Copy Link')}}</th>
-                        <th scope="col" class="text-end">{{__('Action')}}</th>
+                        <th scope="col" class="">{{__('Nobre')}}</th>
+                        <th scope="col" class="text-center">{{__('Personalizar enlace')}}</th>
+                        <th scope="col" class="text-center">{{__('Ver Link')}}</th>
+                        <th scope="col" class="text-center">{{__('Vistas totales')}}</th>
+                        <th scope="col" class="text-center">{{__('Código QR')}}</th>
+                        <th scope="col" class="text-center">{{__('Copiar link')}}</th>
+                        <th scope="col" class="text-end">{{__('Acción')}}</th>
                     </tr>
                 </thead>
                 
@@ -54,13 +54,13 @@
 
                             <td class="text-center align-middle visited"> 
                                 <a href="/dashboard/biolink/{{$link->url_name}}">
-                                    {{__('Customize')}}
+                                    {{__('Personalizar')}}
                                 </a>
                             </td>
 
                             <td class="text-center align-middle visited"> 
                                 <a id="linkUrl{{$link->id}}" target="_blank" href="/{{$link->url_name}}">
-                                    {{__('Visit Link')}}
+                                    {{__('Visitar Link')}}
                                 </a>
                             </td>
 
@@ -88,7 +88,7 @@
                                         " 
                                         data-link="{{json_encode($link)}}"
                                     >
-                                        {{__('Create QR')}}
+                                        {{__('Crear QR')}}
                                     </button>
                                 @endif
                             </td>
@@ -98,7 +98,7 @@
                                     id="linkCopy{{$link->id}}" 
                                     onclick="makeCopy('linkCopy{{$link->id}}', 'linkUrl{{$link->id}}')"
                                 >
-                                    {{__('Copy')}}
+                                    {{__('Copiar')}}
                                 </span>
                             </td>
 
@@ -147,7 +147,7 @@
         </div>
     @else
         <div class="card py-4 px-3 shadow-sm border-0 text-center">
-            <h5>{{__('No have any project')}}</h5>
+            <h5>{{__('No tengo ningún proyecto')}}</h5>
         </div>
     @endif
 

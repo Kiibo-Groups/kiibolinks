@@ -5,6 +5,7 @@ let closeSidebar = document.getElementById("closeSidebar");
 
 expandSidebar.addEventListener("click", function () {
     sidebar.classList.add("active");
+    expandSidebar.remove();
 });
 closeSidebar.addEventListener("click", function () {
     sidebar.classList.remove("active");

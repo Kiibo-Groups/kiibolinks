@@ -10,8 +10,11 @@
                     <label for="linkProfileInput">
                         <img alt="" id="linkProfileImg" src="{{$link->thumbnail ? asset($link->thumbnail) : asset('assets/user-profile.png')}}">
                     </label>
-                    <p style="opacity: 0.8;font-size:13px;">Imagen de perfil</p>
-                   
+                    <p style="opacity: 0.8;font-size:13px;">
+                    Imagen de perfil  &nbsp;
+                    <i class="fa-solid fa-circle-info" data-toggle="tooltip" data-placement="top" title="Dimensiones ideales son: 540px x 540px"></i>
+                    </p> 
+
                     <input hidden type="file" name="thumbnail" id="linkProfileInput">
                     @error('thumbnail')
                         <span class="invalid-feedback" role="alert">
@@ -24,7 +27,10 @@
                     <label for="linkBackgroundInput">
                         <img alt="" id="linkBackgroundImg" src="{{$link->background ? asset($link->background) : asset('assets/background.png')}}">
                     </label>
-                    <p style="position: absolute;bottom: -25px;text-align: center;left: 25%;opacity: 0.8;font-size:13px;">Imagen de fondo</p>
+                    <p style="position: absolute;bottom: -25px;text-align: center;left: 25%;opacity: 0.8;font-size:13px;">
+                        Imagen de fondo&nbsp;
+                        <i class="fa-solid fa-circle-info" data-toggle="tooltip" data-placement="top" title="Dimensiones ideales son: 780px x 300px"></i>
+                    </p>
 
                   
                     <input hidden type="file" name="background" id="linkBackgroundInput">
@@ -40,7 +46,9 @@
                     <label for="linkCompanyInput">
                         <img alt="" id="linkCompanyImg" src="{{$link->company_pic ? asset($link->company_pic) : asset('assets/user-profile.png')}}">
                     </label>
-                    <p style="opacity: 0.8;font-size:13px;">Logo de la compañía</p>
+                    <p style="opacity: 0.8;font-size:13px;">
+                        Logo de la compañía&nbsp;
+                        <i class="fa-solid fa-circle-info" data-toggle="tooltip" data-placement="top" title="Dimensiones ideales son: 440px x 440px"></i></p>
                     
                     @if ($link->company_pic)
                     <span class="imageDel" id="DelcompanyPic" data-link="{{ $link->id }}">

@@ -6,7 +6,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header border-0">
-                <h5 class="modal-title" id="editLinkModalLabel">{{__('Update Project')}}</h5>
+                <h5 class="modal-title" id="editLinkModalLabel">{{__('Actualizar proyecto')}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -15,7 +15,7 @@
                     @method('PUT')
                     
                     <div class="mb-3 text-start">
-                        <label class="form-label">{{__('User Name')}}</label>
+                        <label class="form-label">{{__('Nombre de usuario')}}</label>
 
                         <input 
                             required 
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">{{__('Url Name')}}</label>
+                        <label class="form-label">{{__('Nombre de la URL')}}</label>
 
                         <div class="input-group">
                             <span class="input-group-text bg-white pe-0">/</span>

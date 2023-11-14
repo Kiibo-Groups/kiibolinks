@@ -32,6 +32,15 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('splide/splide.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/drag&drop.css') }}">
+    <style>
+        #tooltip {
+          background-color: #333;
+          color: white;
+          padding: 5px 10px;
+          border-radius: 4px;
+          font-size: 13px;
+        }
+    </style>
 </head>
 
 <body>
@@ -39,12 +48,12 @@
         <div id="loader"></div>
     </div>
     <div class="dashboard">
-        <div class="dashboard-sidebar d-none d-lg-block">
+        <div class="dashboard-sidebar d-none d-md-block" id="mobileSidebar">
             @include('layouts.dashboard.sidebar')
         </div>
-        <div class="dashboard-sidebar dashboard-sidebar-mobile d-block d-lg-none" id="mobileSidebar">
+        {{-- <div class="dashboard-sidebar dashboard-sidebar-mobile d-block d-lg-none" id="mobileSidebar">
             @include('layouts.dashboard.mobile_sidebar')
-        </div>
+        </div> --}}
 
         <div class="dashboard-content">
             @include('layouts.dashboard.header')
@@ -79,7 +88,22 @@
     <script src="{{ asset('js/dashboardscript.js') }}"></script>
     <script src="{{ asset('js/account.js') }}"></script>
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <!-- Development version -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+
+    <!-- Production version -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+
+    
+
     <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
         // Array.prototype.forEach.call(
         //     document.querySelectorAll('.scrollbar'),
         //     el => new SimpleBar()

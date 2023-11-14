@@ -4,11 +4,9 @@ $user = Auth::user();
 <nav class="dashboard-navbar mb-0 rounded-0">
     <div class="container pb-0 d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center">
-            <!--
-            <button class="btn d-block d-lg-none" id="expandSidebar">
+            {{-- <button class="btn d-block d-lg-block" id="expandSidebar">
                 <img width="20" height="20" src="{{ asset('assets/icons/menu.svg') }}" />
-            </button>
-            -->
+            </button> --}}
            
             <h5 class="d-none d-lg-block">
                 @yield('title_header') 
