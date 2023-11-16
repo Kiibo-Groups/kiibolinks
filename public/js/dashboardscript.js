@@ -1,29 +1,30 @@
-let sidebar = document.getElementById("mobileSidebar");
+// let sidebar = document.getElementById("mobileSidebar");
 
-let expandSidebar = document.getElementById("expandSidebar");
-let closeSidebar = document.getElementById("closeSidebar");
+// let expandSidebar = document.getElementById("expandSidebar");
+// let closeSidebar = document.getElementById("closeSidebar");
 
-expandSidebar.addEventListener("click", function () {
-    sidebar.classList.add("active");
-    expandSidebar.remove();
-});
-closeSidebar.addEventListener("click", function () {
-    sidebar.classList.remove("active");
-});
+// expandSidebar.addEventListener("click", function () {
+//     sidebar.classList.add("active");
+//     expandSidebar.remove();
+// });
 
-(function () {
-    function displayWindowSize() {
-        let myWidth = window.innerWidth;
-        // let myHeight = window.innerHeight;
-        if (myWidth > 991) {
-            sidebar.classList.remove("active");
-        }
-    }
+// closeSidebar.addEventListener("click", function () {
+//     sidebar.classList.remove("active");
+// });
 
-    if (window.onresize) {
-        displayWindowSize();
-    }
-    if (window.onload) {
-        displayWindowSize();
-    }
-})();
+// (function () {
+//     function displayWindowSize() {
+//         let myWidth = window.innerWidth;
+//         // let myHeight = window.innerHeight;
+//         if (myWidth > 991) {
+//             sidebar.classList.remove("active");
+//         }
+//     }
+
+//     if (window.onresize) {
+//         displayWindowSize();
+//     }
+//     if (window.onload) {
+//         displayWindowSize();
+//     }
+// })();

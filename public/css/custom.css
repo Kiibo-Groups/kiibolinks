@@ -389,7 +389,7 @@ body {
 }
 
 @media screen and (max-width: 1620px) {
-  #bioLink {
+  .linkViewBioLink {
     left: -70px;
   }
 }
@@ -403,7 +403,7 @@ body {
     display: none !important;
   }
 
-  #bioLink {
+  .linkViewBioLink {
     left: -50px;
   }
 }

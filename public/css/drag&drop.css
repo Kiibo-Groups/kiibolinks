@@ -1,6 +1,7 @@
 .draggable {
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
+    padding-left: 1.5rem;
     display: flex;
     align-items: center;
 }

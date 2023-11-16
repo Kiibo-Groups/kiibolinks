@@ -89,10 +89,12 @@ idChangeValue1("linkCompanyInput", (e) => {
 
 
 let DelcompanyPic = document.getElementById('DelcompanyPic');
-DelcompanyPic.addEventListener("click", (el) => {
-    let linkId = DelcompanyPic.getAttribute('data-link');
-    SendDelCP(linkId);
-});
+if (DelcompanyPic) {
+    DelcompanyPic.addEventListener("click", (el) => {
+        let linkId = DelcompanyPic.getAttribute('data-link');
+        SendDelCP(linkId);
+    });
+}
 
 async function SendDelCP(linkId) {
     const send = await axios.put(`/dashboard/PicCompany-del/${linkId}`).then((response) => {

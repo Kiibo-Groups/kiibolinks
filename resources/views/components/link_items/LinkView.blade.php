@@ -49,7 +49,7 @@ if ($customActive) {
 </style>
 
 <body style="font-family: {{ $fontFamily }} !important">
-    <div id="bioLink" class="viewBioLink"
+    <div id="bioLink" class="linkViewBioLink viewBioLink"
         style=" 
             {{ $backgroundStyle }};
             width: 420px;

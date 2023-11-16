@@ -22,6 +22,12 @@ $navList = [
         'access' => 'user-admin',
     ],
     [
+        'icon' => 'fa-solid fa-qrcode',
+        'title' => 'QR Generados',
+        'url' => 'dashboard/qrcodes',
+        'access' => 'admin',
+    ],
+    [
         'icon' => 'fa-duotone fa-message-captions',
         'title' => 'Testimonios',
         'url' => 'dashboard/testimonials',

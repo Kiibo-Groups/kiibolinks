@@ -12,11 +12,11 @@
         type: "svg",
         margin: 6,
         dotsOptions: {
-            color: "#14c8f5",
+            color: "#343639",
             type: "square",
         },
         cornersSquareOptions: {
-            color: "#2a86fe",
+            color: "#000000",
             type: "square",
         },
         backgroundOptions: {
