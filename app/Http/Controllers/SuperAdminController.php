@@ -69,7 +69,6 @@ class SuperAdminController extends Controller
         return view('pages.admin.testimonials', compact('testimonials'));
     }
 
-
     // Add new testimonial
     public function AddTestimonial(Request $req)
     {
@@ -121,4 +120,3 @@ class SuperAdminController extends Controller
         }
     }
 }
-

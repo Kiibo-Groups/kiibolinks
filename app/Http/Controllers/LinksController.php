@@ -214,7 +214,7 @@ class LinksController extends Controller
         $company_pic = $req->company_pic;
         
         $data['link_name'] = ucwords($req->link_name);
-        $data['short_bio'] = $req->link_bio; 
+        $data['short_bio'] = utf8_encode($req->link_bio); 
         $data['link_location'] = ucwords($req->link_location);
         $data['link_jobtitle'] = ucwords($req->link_jobtitle);
         $data['link_company'] = $req->link_company;

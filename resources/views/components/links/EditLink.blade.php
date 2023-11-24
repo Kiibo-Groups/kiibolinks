@@ -36,8 +36,7 @@
                                 name="url_name"
                                 placeholder="urlname" 
                                 value="{{$link->url_name}}"
-                                class="ps-0 {{$inputClass}}"
-                            >
+                                class="ps-0 {{$inputClass}}">
 
                             <script>
                                 document.getElementById("urlNameEdit")
