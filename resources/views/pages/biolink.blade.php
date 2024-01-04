@@ -96,11 +96,11 @@ if ($customActive) {
                             <h3 class="mt-2 textContent">{{ $link->link_name }}</h3>
                         </div>
                         <div style="display: flex;">
-                            <h6 class="mt-2 textContent">{{ $link->link_jobtitle }} at {{ $link->link_company }}</h6>
+                            <h6 class="mt-2 textContent">{{ $link->link_jobtitle }} {{ $link->link_company }}</h6>
                         </div>
                         <p class="py-2 textContent" style="opacity: 0.8;">{{ $link->link_location }}</p>
                         
-                        <p class="py-2 textContent">{{ $link->short_bio }}</p>
+                        <p class="py-2 textContent">{{ utf8_decode($link->short_bio) }}</p>
                         <div class="d-flex justify-content-center" style="box-sizing: border-box;flex-flow: wrap;width: 100%;-moz-box-align: stretch;align-items: stretch;-moz-box-pack: center;max-width: 350px;">
                             @if ($link->socials)
                                 <?php

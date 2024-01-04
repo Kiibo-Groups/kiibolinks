@@ -15,7 +15,11 @@
             </div>
 
             <div class="col-lg-4 d-none d-lg-block">
-                <div style="display: flex;justify-content: center;flex-direction: column;text-align: center;">
+                <div class="mobileLinkContainer" id="mobileLinkContainer" style="height:550px;">
+                    @include('components.link_items.LinkView')
+                </div>
+                
+                <div style="justify-content: center;flex-direction: column;text-align: center;">
                     <p style="font-size: 14px;opacity: 0.8;">{{ __('Card live preview') }}</p>
 
                     <a href="/{{ $link->url_name }}" target="_blank" style="margin: 20px 0 0 0;text-decoration: none;font-size: 13px;">
@@ -24,11 +28,6 @@
                             <i class="fa-regular fa-share-from-square"></i>
                         </span>
                     </a>
-                </div>
-            
-
-                <div class="mobileLinkContainer" id="mobileLinkContainer">
-                    @include('components.link_items.LinkView')
                 </div>
             </div>
         </div>

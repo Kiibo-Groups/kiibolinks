@@ -122,7 +122,7 @@
                         rows="3" 
                         name="link_bio" 
                         placeholder="Write something about you." 
-                        class="form-control teditable @error('link_bio') is-invalid @enderror">{{$link->short_bio}}</textarea>
+                        class="form-control teditable @error('link_bio') is-invalid @enderror">{{utf8_decode($link->short_bio)}}</textarea>
 
                         @error('link_bio')
                             <span class="invalid-feedback" role="alert">

@@ -1,4 +1,4 @@
-<div id="bioLinkItems" class="bioLinkItems" data-id="{{$link->id}}" >
+<div id="bioLinkItems" class="bioLinkItems" data-id="{{$link->id}}" style="overflow-y: scroll;height: 750px;">
     <div style="width: 100%; display: flex; justify-content: space-between;" class="px-4 my-4">
         <h4>{{ __('Add Links & Content') }}</h4>
         <button style="background-color: rgba(0,0,0,0.1); border: 1px dotted gray;" class="btn text-gray" data-bs-toggle="modal"  data-bs-target="#addLinkItemsModal">
